@@ -137,11 +137,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .flow-item {
   position: absolute;
-  top: 10%;
+  top: 5%;
   left: 50%;
-  width: min(30vh, 280px);
+  width: min(40vh, 400px);
   aspect-ratio: 1;
-  margin-left: calc(min(30vh, 280px) / -2);
+  margin-left: calc(min(40vh, 400px) / -2);
   transform-style: preserve-3d;
   will-change: transform, opacity;
   transform-origin: center center;
@@ -169,7 +169,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   pointer-events: none;
   border-radius: 4px;
 }
-.flow-item.is-hidden { display: none; }
+.flow-item.is-hidden {
+  visibility: hidden;
+  opacity: 0 !important;
+  pointer-events: none;
+}
 
 .flow-meta {
   text-align: center;
@@ -189,6 +193,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   color: var(--muted);
   font-size: 14px;
   letter-spacing: 0.04em;
+}
+.flow-count {
+  margin: 10px 0 0;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--faint);
+  font-variant-numeric: tabular-nums;
 }
 .flow-cta {
   display: inline-flex;
@@ -557,16 +568,23 @@ footer {
   .release-art { position: static; max-width: 420px; }
   .photo-spread .tall { min-height: 320px; }
   .styles { grid-template-columns: 1fr; }
-  .flow-wrap { height: min(54vh, 480px); }
-  .flow-item { width: min(46vw, 200px); margin-left: calc(min(46vw, 200px) / -2); }
+  .flow-wrap { height: min(58vh, 520px); }
+  .flow-item { width: min(52vw, 230px); margin-left: calc(min(52vw, 230px) / -2); }
   footer { flex-direction: column; padding: 32px 20px 48px; }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
-  .hero { min-height: calc(100svh - var(--nav-h)); padding: 0; }
-  .flow-wrap { height: calc(100svh - 210px); }
-  .flow-item { width: min(48vh, 240px); margin-left: calc(min(48vh, 240px) / -2); top: 2%; }
-  .flow-meta { min-height: 70px; }
+  .hero { min-height: calc(100svh - var(--nav-h)); padding: 0; justify-content: flex-start; }
+  .hero-kicker, .hint { display: none; }
+  .filters { margin: 4px 0 0; }
+  .filter { padding: 5px 11px; font-size: 10px; }
+  .flow-wrap { height: calc(100svh - 196px); min-height: 200px; }
+  .flow-item { width: min(50vh, 210px); margin-left: calc(min(50vh, 210px) / -2); top: 0; }
+  .flow-meta { min-height: 60px; padding-top: 2px; }
+  .flow-title { font-size: 22px; }
+  .flow-sub { font-size: 11px; }
+  .flow-count { display: none; }
+  .flow-cta { margin-top: 6px; font-size: 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
