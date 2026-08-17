@@ -516,8 +516,7 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 .champ img {
   width: 220px;
   height: 220px;
-  border-radius: 48px;
-  box-shadow: 0 24px 60px rgba(196, 163, 90, 0.28);
+  filter: drop-shadow(0 24px 48px rgba(196, 163, 90, 0.35));
 }
 .styles {
   display: grid;

@@ -14,15 +14,18 @@
   const MAX_VIS = 9;
   const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // mode: "drag" (finger on the glass) | "inertia" (fling glide) | "spring" (settle to a cover)
+  let mode = "spring";
   let items = all;
   let target = items.length - 1;
   let current = target;
-  let vel = 0;
-  let dragging = false;
+  let vel = 0; // covers per frame
   let lastX = 0;
   let lastT = 0;
   let downX = 0;
   let nodes = [];
+
+  const maxIndex = () => items.length - 1;
 
   function coverW() {
     return nodes.length ? nodes[0].offsetWidth : 300;
@@ -58,6 +61,7 @@
         if (Math.abs(i - current) > 0.35) {
           e.preventDefault();
           target = i;
+          mode = "spring";
         }
       });
       stage.appendChild(el);
@@ -71,6 +75,7 @@
     }
     current = target;
     vel = 0;
+    mode = "spring";
     layout();
     meta();
   }
@@ -121,7 +126,7 @@
   }
 
   function meta() {
-    const i = Math.round(current);
+    const i = Math.round(Math.max(0, Math.min(maxIndex(), current)));
     const rel = items[i];
     if (!rel) return;
     if (titleEl.textContent !== rel.title) titleEl.textContent = rel.title;
@@ -144,53 +149,72 @@
   }
 
   function tick() {
-    if (!dragging) {
-      const spring = 0.14;
-      const damp = 0.8;
-      vel = vel * damp + (target - current) * spring;
+    if (mode === "inertia") {
+      current += vel;
+      vel *= 0.962;
+      if (current <= 0 || current >= maxIndex()) {
+        current = Math.max(0, Math.min(maxIndex(), current));
+        vel = 0;
+      }
+      if (Math.abs(vel) < 0.04) {
+        target = Math.round(current);
+        mode = "spring";
+      }
+    } else if (mode === "spring") {
+      vel = vel * 0.78 + (target - current) * 0.16;
       current += vel;
       if (Math.abs(target - current) < 0.0008 && Math.abs(vel) < 0.0008) {
         current = target;
         vel = 0;
       }
     }
-    current = Math.max(0, Math.min(items.length - 1, current));
+    if (mode === "drag") {
+      current = Math.max(-0.5, Math.min(maxIndex() + 0.5, current));
+    } else {
+      current = Math.max(0, Math.min(maxIndex(), current));
+    }
     layout();
     meta();
     requestAnimationFrame(tick);
   }
 
-  function snap() {
-    target = Math.max(0, Math.min(items.length - 1, Math.round(current + vel * 7)));
-    vel *= 0.25;
-  }
-
   wrap.addEventListener("pointerdown", (e) => {
-    dragging = true;
+    mode = "drag";
     wrap.classList.add("is-dragging");
     downX = e.clientX;
     lastX = e.clientX;
     lastT = performance.now();
     vel = 0;
-    wrap.setPointerCapture(e.pointerId);
+    try {
+      wrap.setPointerCapture(e.pointerId);
+    } catch (_) {}
   });
   wrap.addEventListener("pointermove", (e) => {
-    if (!dragging) return;
+    if (mode !== "drag") return;
     const now = performance.now();
     const dx = e.clientX - lastX;
     const dt = Math.max(8, now - lastT);
     const w = coverW() || 300;
     const delta = -dx / (w * 0.5);
-    current += delta;
-    vel = delta / (dt / 16);
+    let next = current + delta;
+    const max = maxIndex();
+    if (next < 0) next *= 0.35;
+    else if (next > max) next = max + (next - max) * 0.35;
+    vel = vel * 0.5 + (delta / (dt / 16)) * 0.5;
+    current = next;
     lastX = e.clientX;
     lastT = now;
   });
   const endDrag = () => {
-    if (!dragging) return;
-    dragging = false;
+    if (mode !== "drag") return;
     wrap.classList.remove("is-dragging");
-    snap();
+    vel = Math.max(-1.5, Math.min(1.5, vel));
+    if (Math.abs(vel) > 0.06) {
+      mode = "inertia";
+    } else {
+      target = Math.round(Math.max(0, Math.min(maxIndex(), current)));
+      mode = "spring";
+    }
   };
   wrap.addEventListener("pointerup", endDrag);
   wrap.addEventListener("pointercancel", endDrag);
@@ -201,14 +225,21 @@
       const dominant = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
       if (Math.abs(dominant) < 2) return;
       e.preventDefault();
-      target = Math.max(0, Math.min(items.length - 1, target + Math.sign(dominant)));
+      target = Math.max(0, Math.min(maxIndex(), target + Math.sign(dominant)));
+      mode = "spring";
     },
     { passive: false }
   );
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowRight") target = Math.min(items.length - 1, target + 1);
-    if (e.key === "ArrowLeft") target = Math.max(0, target - 1);
+    if (e.key === "ArrowRight") {
+      target = Math.min(maxIndex(), target + 1);
+      mode = "spring";
+    }
+    if (e.key === "ArrowLeft") {
+      target = Math.max(0, target - 1);
+      mode = "spring";
+    }
   });
 
   document.querySelectorAll("[data-filter]").forEach((btn) => {
