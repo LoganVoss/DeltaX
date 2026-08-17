@@ -219,35 +219,6 @@ def write(path: Path, text: str) -> None:
 
 
 def build_index() -> None:
-    by_year = defaultdict(list)
-    for r in CATALOG:
-        by_year[r["year"]].append(r)
-    for y in by_year:
-        by_year[y].sort(key=lambda x: x["releaseDate"], reverse=True)
-
-    year_html = []
-    for y in YEARS:
-        rels = by_year[y]
-        cards = []
-        for r in rels:
-            cards.append(
-                f"""<a class="card" href="music/{esc(r['slug'])}.html">
-  <img src="assets/img/{esc(r['cover'])}" alt="{esc(r['title'])} cover art by DeltaX" loading="lazy" width="400" height="400">
-  <div class="card-title">{esc(r['title'])}</div>
-  <div class="card-meta">{kind_label(r['kind'])} · {pretty_date(r['releaseDate'])} · {esc(r['genre'])}</div>
-</a>"""
-            )
-        year_html.append(
-            f"""<section class="year-block" id="year-{y}">
-  <div class="year-head">
-    <h3>{y}</h3>
-    <div class="year-count">{len(rels)} release{'s' if len(rels) != 1 else ''}</div>
-  </div>
-  <p class="year-copy">{YEAR_COPY.get(y, '')}</p>
-  <div class="grid">{''.join(cards)}</div>
-</section>"""
-        )
-
     slim = [
         {
             "slug": r["slug"],
@@ -276,7 +247,6 @@ def build_index() -> None:
         extra,
     )}
 <body>
-<a class="skip" href="#catalog">Skip to catalog</a>
 {nav("music")}
 <main>
   <section class="hero" aria-label="Cover Flow">
@@ -296,32 +266,9 @@ def build_index() -> None:
       <p class="flow-count" id="flow-count"></p>
       <a class="flow-cta" id="flow-cta" href="about.html">Open release</a>
     </div>
-    <p class="hint">Drag it. Fling it. Click a cover to go inside.</p>
-  </section>
-
-  <section class="section" id="catalog">
-    <p class="eyebrow">Artist</p>
-    <h2>Fifteen years of music, finally in one room.</h2>
-    <p class="lede">DeltaX is Logan Voss. Born in San Francisco on Christmas Day, 1995. Raised on Bay Area light and Chicago winters. Back in California for good. Rap first, then everything.</p>
-    <div class="prose">
-      <p>This is the whole catalog in one place. The covers up top are in the order they went out into the world — swipe through them like an old iPod, click one, and you're inside the record. Dates, tracks, links. No noise.</p>
-      <p>The short version of a long story: the streams didn't come for years. So the music went up on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a>, free for anyone making anything. Millions of plays later, it's under TV shows, commercials, movies, and videos in languages Logan doesn't speak. Then the streams came. Funny how that works.</p>
-    </div>
-    <div class="stats">
-      <div><span class="stat-n">25+</span><span class="stat-l">Studio albums</span></div>
-      <div><span class="stat-n">{len(CATALOG)}</span><span class="stat-l">Releases on this site</span></div>
-      <div><span class="stat-n">100K+</span><span class="stat-l">Pixabay downloads</span></div>
-      <div><span class="stat-n">15</span><span class="stat-l">Years making music</span></div>
-    </div>
-  </section>
-
-  <section class="section wide">
-    <p class="eyebrow">Chronology</p>
-    <h2>Every release, in the order it left the room.</h2>
-    {''.join(year_html)}
+    <p class="hint">Scroll, drag, or fling — click a cover to go inside</p>
   </section>
 </main>
-{foot()}
 <script src="assets/js/catalog.js"></script>
 <script src="assets/js/coverflow.js"></script>
 </body>
@@ -344,18 +291,33 @@ def build_about() -> None:
   <section class="about-hero">
     <p class="eyebrow">About</p>
     <h1>Logan Voss is DeltaX.</h1>
-    <p class="lede">Born on Christmas Day, 1995, in San Francisco. Chicago from ten. Back to California for college — and California ever since. Fifteen years of music, most of it as DeltaX, all of it on his own terms.</p>
+    <p class="lede">Born on Christmas Day, 1995, in San Francisco. Chicago from ten. Back to California for college — and California ever since.</p>
+  </section>
+
+  <section class="section">
+    <p class="eyebrow">The practice</p>
+    <h2>Fifteen years of music, finally in one room.</h2>
+    <p class="lede">Rap first, as LOVO. Then the beats took the name. DeltaX never picked a genre — dance, house, dubstep, downtempo, meditation, hip-hop — and never stopped shipping.</p>
+    <div class="prose">
+      <p>This site is the whole catalog in one place. The covers on the <a href="index.html">music page</a> are in the order they went out into the world — swipe through them like an old iPod, click one, and you're inside the record. Dates, tracks, links. No noise.</p>
+    </div>
+    <div class="stats">
+      <div><span class="stat-n">25+</span><span class="stat-l">Studio albums</span></div>
+      <div><span class="stat-n">{len(CATALOG)}</span><span class="stat-l">Releases on this site</span></div>
+      <div><span class="stat-n">100K+</span><span class="stat-l">Pixabay downloads</span></div>
+      <div><span class="stat-n">15</span><span class="stat-l">Years making music</span></div>
+    </div>
   </section>
 
   <section class="about-hero">
     <div class="photo-spread">
-      <img class="tall" src="assets/img/about/mural.jpg" alt="Logan Voss in a white t-shirt standing before a colorful mural in Los Angeles" width="1600" height="2000">
+      <img class="tall" src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite with his hands in the air" width="1600" height="2400">
       <div class="stack">
-        <img src="assets/img/about/ocean-jump.jpg" alt="Logan Voss jumping in the air by the ocean" width="1600" height="1000">
-        <img src="assets/img/about/yosemite.jpg" alt="Logan Voss on a mountain in Yosemite with his hands in the air" width="1600" height="1000">
+        <img src="assets/img/about/mural.jpg" alt="Logan Voss in a white t-shirt standing before a colorful mural in Los Angeles" width="1600" height="1200">
+        <img src="assets/img/about/ocean-jump.jpg" alt="Logan Voss jumping in the air by the ocean" width="1600" height="1200">
       </div>
     </div>
-    <p class="caption">Photographs by Logan Voss — a Los Angeles mural, the Pacific, Yosemite. More on Unsplash @loganvoss.</p>
+    <p class="caption">Photographs by Logan Voss — Yosemite, a Los Angeles mural, and the Pacific. More on Unsplash @loganvoss.</p>
   </section>
 
   <section class="section">
@@ -397,11 +359,12 @@ def build_about() -> None:
       <p>And there's Champagne. After fifteen years of mixing and mastering his own catalog — and a long, curious dive into AI music — he built the mastering tool he always wanted. One click, four tempers, finished record. The studio ear, turned into software.</p>
       <p>The personal site, <a href="https://www.loganvoss.com">loganvoss.com</a>, says artist, designer, musician. The GitHub bio says <em>inspire the universe</em>. Both check out. The job is simple: make the work, put it where people can use it, stay in the room.</p>
     </div>
-    <div class="photo-spread" style="margin-top:56px">
-      <img class="tall" src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite National Park with hands raised" width="1600" height="2000">
-      <div class="stack">
-        <img src="assets/img/about/mm7-artwork.jpg" alt="Meditation Music 7 album artwork by DeltaX, photographed by Logan Voss" width="1200" height="1200">
-        <img src="assets/img/about/ocean-jump.jpg" alt="Cliffside jump over the Pacific — photograph by Logan Voss" width="1600" height="1000">
+    <div class="photo-feature">
+      <img src="assets/img/about/mm7-artwork.jpg" alt="Meditation Music 7 album artwork by DeltaX, photographed by Logan Voss" width="1200" height="1600">
+      <div>
+        <p class="eyebrow">Also his</p>
+        <h3 style="font-size:28px;margin:0 0 12px;letter-spacing:-0.02em">The covers are his too.</h3>
+        <p class="prose">The artwork for the Meditation Music series — including this frame from MM7 — started as Logan's own photography. Same eye as the pictures above, pointed at the quiet stuff.</p>
       </div>
     </div>
   </section>
@@ -517,31 +480,56 @@ def build_contact() -> None:
 
 def build_champagne() -> None:
     page = f"""{head(
-        "Champagne — AI Mastering by DeltaX",
-        "Champagne is an AI mastering app by DeltaX (Logan Voss). One click, four styles — Full Power, Warm Presence, Modern Crisp, Dominant — built from fifteen years of finishing records.",
+        "Champagne — Master AI Music Like a Pro",
+        "Champagne is a one-click mastering studio built for the AI music era. Four styles, unlimited masters, one-time purchase. Made by DeltaX.",
         "champagne.html",
         "assets/img/champagne.png",
     )}
 <body>
 {nav("about")}
 <main class="section">
-  <p class="eyebrow">Instrument</p>
-  <h1>Champagne.</h1>
+  <p class="eyebrow">Champagne</p>
+  <h1>Master AI music like a pro.</h1>
   <div class="champ">
     <img src="assets/img/champagne.png" alt="Champagne app icon — a white C on a champagne-gold field" width="1024" height="1024">
     <div>
-      <p class="lede">One click. A finished master. Built by a producer who spent fifteen years finishing his own.</p>
-      <p class="prose">Champagne came out of a long dive into AI music — and out of a practical problem: mastering a twenty-five-album catalog at a desk in Los Angeles. Drop in a WAV, AIFF, MP3, M4A, or FLAC, pick a temper, and A/B the master against the mix. That's it. That's the app.</p>
+      <p class="lede">A mastering studio built for the AI music era — for artists turning Suno tracks and machine-made demos into full-bodied, release-ready records.</p>
+      <p class="prose">In 2025, Logan started exploring AI music. The tools could write songs — but everything came out thin. No weight, no body, no finish. So he built the last step: a one-click master that makes a track sound bold, strong, and done, without breaking the flow state it was made in.</p>
     </div>
   </div>
+
+  <p class="eyebrow" style="margin-top:72px">How it works</p>
+  <h2>Four steps. One minute. Done.</h2>
+  <div class="steps">
+    <div class="step"><span>01</span><b>Import</b><p>Drop in a WAV, AIFF, MP3, M4A, or FLAC — straight from Suno, your DAW, or a voice memo.</p></div>
+    <div class="step"><span>02</span><b>Pick a style</b><p>Four mastering tempers, each with its own processing character. Choose the one that fits the song.</p></div>
+    <div class="step"><span>03</span><b>Preview</b><p>A/B the master against the original. Trim the ends, set a fade, make it yours.</p></div>
+    <div class="step"><span>04</span><b>Export</b><p>Release-ready 24-bit WAV at 48 kHz. Named, leveled, and finished.</p></div>
+  </div>
+
+  <p class="eyebrow" style="margin-top:72px">Styles</p>
+  <h2>Four ways to finish a record.</h2>
   <div class="styles">
     <div class="style"><b>Full Power</b><span>Parallel punch. Loud enough to stand next to anything on the playlist.</span></div>
     <div class="style"><b>Warm Presence</b><span>Upward lift, warm density. Close, not loud.</span></div>
     <div class="style"><b>Modern Crisp</b><span>Open and clear. The mix, with the air left in.</span></div>
     <div class="style"><b>Dominant</b><span>Heavy glue. Club loud. The kick arrives as a fact.</span></div>
   </div>
-  <div class="prose" style="margin-top:48px">
-    <p>The same ear shaped Weightless, Gradience, the Meditation Music series, and the singles that slipped into other people's commercials. This time it's a product. If you make records, it's for you. If you're just here for the music, the <a href="index.html">catalog</a> is the front door. Either way — <a href="contact.html">same inbox</a>.</p>
+
+  <div class="callout">
+    <p class="eyebrow">Pricing</p>
+    <h2>Buy it once. Master forever.</h2>
+    <p class="lede">No credits. No subscription. No limits on how many songs you finish. Champagne is a one-time purchase with unlimited mastering — the way a tool should be.</p>
+    <div class="links">
+      <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
+      <a class="btn ghost" href="contact.html">Ask a question</a>
+    </div>
+  </div>
+
+  <div class="prose" style="margin-top:64px">
+    <p>Under the hood, Champagne analyzes your track and applies a carefully tuned chain of level control, EQ, compression, expansion, and final peak management. Each style is a different processing character — four ways to shape the finished sound.</p>
+    <p>Worth saying plainly: <b>Champagne does not use artificial intelligence to process audio.</b> The mastering engine runs on advanced digital signal processing — specific mathematical algorithms — and everything happens locally on your device. The AI in the story is the community Champagne was built for: the artists prompting songs into existence at 2 a.m. and needing them to sound finished by breakfast.</p>
+    <p>Champagne is made by DeltaX — a sound designer with more than 25 studio albums and over fifteen years in music. It's the tool he wanted for the last step of the workflow, so he built it.</p>
   </div>
 </main>
 {foot()}

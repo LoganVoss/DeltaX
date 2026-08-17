@@ -120,7 +120,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .flow-wrap {
   width: 100%;
-  height: min(62vh, 620px);
+  height: min(66vh, 680px);
   perspective: 1400px;
   perspective-origin: 50% 42%;
   touch-action: pan-y;
@@ -137,11 +137,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .flow-item {
   position: absolute;
-  top: 5%;
+  top: 4%;
   left: 50%;
-  width: min(40vh, 400px);
+  width: min(44vh, 460px);
   aspect-ratio: 1;
-  margin-left: calc(min(40vh, 400px) / -2);
+  margin-left: calc(min(44vh, 460px) / -2);
   transform-style: preserve-3d;
   will-change: transform, opacity;
   transform-origin: center center;
@@ -427,19 +427,32 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 }
 .photo-spread {
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
+  grid-template-columns: 1fr 1.35fr;
   gap: 16px;
   margin: 48px 0 80px;
+  align-items: start;
 }
 .photo-spread img {
   width: 100%;
-  height: 100%;
   object-fit: cover;
   border-radius: 2px;
 }
-.photo-spread .tall { min-height: 520px; }
+.photo-spread .tall { aspect-ratio: 2 / 3; }
 .photo-spread .stack { display: grid; gap: 16px; }
-.photo-spread .stack img { min-height: 252px; }
+.photo-spread .stack img { aspect-ratio: 4 / 3; }
+.photo-feature {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-top: 56px;
+}
+.photo-feature img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 2px;
+}
 .caption {
   font-size: 12px;
   color: var(--faint);
@@ -531,6 +544,31 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 .style b { display: block; margin-bottom: 6px; }
 .style span { color: var(--muted); font-size: 14px; line-height: 1.5; }
 
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.step { border-top: 1px solid var(--line); padding-top: 20px; }
+.step span {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--faint);
+  margin-bottom: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.step b { display: block; font-size: 17px; margin-bottom: 8px; letter-spacing: -0.01em; }
+.step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+.callout {
+  margin-top: 80px;
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
 /* ——— Footer ——— */
 footer {
   padding: 48px 36px 64px;
@@ -563,10 +601,11 @@ footer {
   .nav-toggle { display: block; }
   .section, .release, .about-hero { padding-left: 20px; padding-right: 20px; }
   .stats { grid-template-columns: 1fr 1fr; }
-  .release, .photo-spread, .champ, .tl-item { grid-template-columns: 1fr; }
+  .release, .photo-spread, .champ, .tl-item, .photo-feature { grid-template-columns: 1fr; }
   .release-art { position: static; max-width: 420px; }
-  .photo-spread .tall { min-height: 320px; }
-  .styles { grid-template-columns: 1fr; }
+  .photo-feature { gap: 24px; }
+  .photo-feature img { max-width: 320px; }
+  .styles, .steps { grid-template-columns: 1fr; }
   .flow-wrap { height: min(58vh, 520px); }
   .flow-item { width: min(52vw, 230px); margin-left: calc(min(52vw, 230px) / -2); }
   footer { flex-direction: column; padding: 32px 20px 48px; }

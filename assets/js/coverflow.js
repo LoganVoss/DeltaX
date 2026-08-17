@@ -93,7 +93,7 @@
   function layout() {
     const w = coverW();
     if (!w) return;
-    const spacing = w * 0.33;
+    const spacing = w * 0.34;
     nodes.forEach((el, i) => {
       const d = i - current;
       const abs = Math.abs(d);
@@ -108,13 +108,13 @@
       const t = Math.min(abs, 1);
       const rest = Math.max(abs - 1, 0);
 
-      const rot = sign * (62 * t + 3 * Math.min(rest, 5));
-      const x = sign * (w * 0.62 * t + spacing * rest);
-      const z = -Math.min(abs, 9) * 50;
+      const rot = sign * (72 * t + 2 * Math.min(rest, 5));
+      const x = sign * (w * 0.7 * t + spacing * rest);
+      const z = -Math.min(abs, 9) * 85;
       const y = abs * 4;
-      const scale = 1 - Math.min(abs, 6) * 0.01;
-      const bright = 1 - Math.min(abs, 7) * 0.05;
-      const opacity = abs > 8.2 ? Math.max(0, 1 - (abs - 8.2) * 0.9) : 1;
+      const scale = 1 - Math.min(abs, 6) * 0.03;
+      const bright = 1 - Math.min(abs, 7) * 0.075;
+      const opacity = abs > 7.6 ? Math.max(0, 1 - (abs - 7.6) * 1.1) : 1;
 
       el.style.opacity = opacity.toFixed(3);
       el.style.zIndex = String(400 - Math.round(abs * 10));
@@ -219,14 +219,20 @@
   wrap.addEventListener("pointerup", endDrag);
   wrap.addEventListener("pointercancel", endDrag);
 
+  let wheelTimer = 0;
   wrap.addEventListener(
     "wheel",
     (e) => {
-      const dominant = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
-      if (Math.abs(dominant) < 2) return;
       e.preventDefault();
-      target = Math.max(0, Math.min(maxIndex(), target + Math.sign(dominant)));
+      let d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+      if (e.deltaMode === 1) d *= 16;
+      if (Math.abs(d) < 0.5) return;
+      target = Math.max(0, Math.min(maxIndex(), target + d * 0.0042));
       mode = "spring";
+      clearTimeout(wheelTimer);
+      wheelTimer = setTimeout(() => {
+        target = Math.round(target);
+      }, 140);
     },
     { passive: false }
   );
