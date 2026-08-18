@@ -689,7 +689,6 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
   background: #f7f3e9;
 }
 .champagne-close .lede { margin-left: auto; margin-right: auto; }
-.champagne-close .lede + .lede { margin-top: 8px; }
 .champagne-close .champagne-buy,
 .champagne-close .links { justify-content: center; }
 
