@@ -466,6 +466,49 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 .tl-item h3 { font-size: 22px; margin: 0 0 8px; letter-spacing: -0.02em; }
 .tl-item p { margin: 0; color: #3a3a3c; line-height: 1.65; }
 
+.story-image {
+  margin: 0;
+  min-width: 0;
+}
+.story-image img {
+  width: 100%;
+  border-radius: 2px;
+}
+.story-image figcaption {
+  margin-top: 10px;
+  color: var(--faint);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.story-image-wide { margin-top: 64px; }
+.story-image-portrait { max-width: 440px; }
+.story-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  gap: clamp(48px, 8vw, 112px);
+  align-items: center;
+  margin-top: 48px;
+}
+.story-split-reverse {
+  grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1fr);
+}
+.story-split-reverse .story-image { justify-self: start; }
+.story-split .prose { max-width: 56ch; }
+.prose-large {
+  max-width: 58ch;
+  font-size: clamp(19px, 2vw, 24px);
+  line-height: 1.62;
+}
+.about-visual-break { padding-top: 0; }
+.about-visual-break .story-image-wide { margin-top: 0; }
+.about-cta {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.about-cta .pull { margin-bottom: 24px; }
+
 /* ——— Socials / contact ——— */
 .social-list {
   display: grid;
@@ -558,6 +601,80 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
   border-bottom: 1px solid var(--line);
 }
 
+.champagne-hero {
+  min-height: calc(100svh - var(--nav-h));
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 380px);
+  gap: clamp(56px, 10vw, 140px);
+  align-items: center;
+}
+.champagne-hero h1 { max-width: 11ch; }
+.champagne-hero .lede { max-width: 32ch; }
+.champagne-icon {
+  width: 100%;
+  filter: drop-shadow(0 40px 72px rgba(196, 163, 90, 0.36));
+}
+.champagne-buy {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin-top: 36px;
+}
+.price {
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+.price-note {
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.champagne-origin {
+  max-width: 100%;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  background: #f7f3e9;
+}
+.champagne-origin > * {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+.champagne-process,
+.champagne-styles { padding-top: 120px; padding-bottom: 120px; }
+.champagne-styles {
+  max-width: 100%;
+  background: #161513;
+  color: #f7f3e9;
+}
+.champagne-styles > * {
+  max-width: var(--max);
+  margin-left: auto;
+  margin-right: auto;
+}
+.champagne-styles .eyebrow,
+.champagne-styles .style span { color: #aaa49a; }
+.champagne-styles .style { border-color: rgba(255,255,255,0.16); }
+.champagne-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 1fr);
+  gap: clamp(48px, 9vw, 120px);
+  align-items: start;
+}
+.champagne-close {
+  max-width: 100%;
+  padding-top: 120px;
+  padding-bottom: 140px;
+  text-align: center;
+  background: #f7f3e9;
+}
+.champagne-close .lede { margin-left: auto; margin-right: auto; }
+.champagne-close .champagne-buy,
+.champagne-close .links { justify-content: center; }
+
 /* ——— Footer ——— */
 footer {
   padding: 48px 36px 64px;
@@ -590,11 +707,19 @@ footer {
   .nav-toggle { display: block; }
   .section, .release, .about-hero { padding-left: 20px; padding-right: 20px; }
   .stats { grid-template-columns: 1fr 1fr; }
-  .release, .champ, .tl-item, .photo-gallery { grid-template-columns: 1fr; }
+  .release, .champ, .tl-item, .photo-gallery, .story-split, .story-split-reverse, .champagne-hero, .champagne-detail { grid-template-columns: 1fr; }
   .photo-gallery { gap: 36px; }
   .photo-gallery .photo-wide { grid-column: auto; }
   .release-art { position: static; max-width: 420px; }
   .styles, .steps { grid-template-columns: 1fr; }
+  .story-image-portrait { max-width: 100%; }
+  .story-split-reverse .story-image { order: 2; }
+  .champagne-hero { min-height: auto; }
+  .champagne-icon { max-width: 280px; justify-self: center; }
+  .champagne-origin,
+  .champagne-process,
+  .champagne-styles,
+  .champagne-close { padding-top: 88px; padding-bottom: 88px; }
   .flow-wrap { height: min(58vh, 520px); }
   .flow-item { width: min(52vw, 230px); margin-left: calc(min(52vw, 230px) / -2); }
   footer { flex-direction: column; padding: 32px 20px 48px; }
