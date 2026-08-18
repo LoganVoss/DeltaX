@@ -2,7 +2,7 @@
 
 Official artist site for **DeltaX** (Logan Mackenzie Voss) — [deltaxmusic.com](https://www.deltaxmusic.com).
 
-Static GitHub Pages project. Cover-flow catalog, SEO release pages, about, socials, contact, Champagne.
+Static GitHub Pages project. Cover-flow discography, about, socials, contact, Champagne.
 
 ## Local
 

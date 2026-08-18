@@ -5,42 +5,22 @@ from __future__ import annotations
 
 import json
 import html
-from collections import defaultdict
+import shutil
 from datetime import date
 from pathlib import Path
+from urllib.parse import quote
 
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = json.loads((ROOT / "data" / "catalog.json").read_text())
 SITE = "https://www.deltaxmusic.com"
 TODAY = date.today().isoformat()
 
-ALBUMS = [r for r in CATALOG if r["kind"] == "album"]
-EPS = [r for r in CATALOG if r["kind"] == "ep"]
-SINGLES = [r for r in CATALOG if r["kind"] == "single"]
-YEARS = sorted({r["year"] for r in CATALOG if r["year"]}, reverse=True)
-
-
 def esc(s: str) -> str:
     return html.escape(s or "", quote=True)
 
 
-def pretty_date(iso: str) -> str:
-    if not iso:
-        return ""
-    y, m, d = iso.split("-")
-    months = "January February March April May June July August September October November December".split()
-    return f"{months[int(m) - 1]} {int(d)}, {y}"
-
-
-def kind_label(k: str) -> str:
-    return {"album": "Album", "ep": "EP", "single": "Single"}[k]
-
-
-def ms_to_time(ms) -> str:
-    if not ms:
-        return ""
-    s = int(ms) // 1000
-    return f"{s // 60}:{s % 60:02d}"
+def spotify_search(title: str) -> str:
+    return "https://open.spotify.com/search/" + quote(f"{title} DeltaX")
 
 
 def nav(active: str, prefix: str = "") -> str:
@@ -147,70 +127,13 @@ ARTIST_LD = {
         "https://music.apple.com/us/artist/deltax/1620112963",
         "https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF",
         "https://www.youtube.com/@DeltaXMusic",
-        "https://www.youtube.com/@loganxvoss",
         "https://www.instagram.com/loganxvoss/",
         "https://x.com/LoganxVoss",
-        "https://www.threads.com/@loganxvoss",
         "https://pixabay.com/users/deltax-music-34692063/",
-        "https://unsplash.com/@loganvoss",
-        "https://www.pexels.com/@logan/",
-        "https://github.com/LoganVoss",
         "https://deltaxxx.bandcamp.com/",
         "https://www.loganvoss.com",
-        "https://apps.apple.com/us/developer/logan-voss/id1813258380",
     ],
 }
-
-
-YEAR_COPY = {
-    "2022": (
-        "The first singles go up — Rise, Exscape, Neon Cowboy. No campaign, no "
-        "label, no plan B. Just songs leaving the hard drive to see what happens."
-    ),
-    "2023": (
-        "The floodgates open. Albums start landing — Astral Sex, Peace Out Fool, "
-        "Space Fruit, Parallels — and a single most weeks. In March, the whole "
-        "discography goes up on Pixabay, free for anyone making anything. "
-        "Stuck On You starts traveling. The music gets around before the name does."
-    ),
-    "2024": (
-        "Gradience — fifteen tracks, front to back — anchors the year. Love "
-        "arrives as an EP. The sped-up editions meet the kids where they live. "
-        "Taj Mahal (Stargazing), Bay Area Connect, Alien Breath: postcards from "
-        "a producer who doesn't sit still."
-    ),
-    "2025": (
-        "The Meditation Music series opens a quieter room — same hands, slower "
-        "pulse. Yang and Think Different sit next to a single habit that never "
-        "breaks. Somewhere in here, the Pixabay plays cross a million."
-    ),
-    "2026": (
-        "Weightless, X, Bloom, MM7. The streams finally show up to a party "
-        "that's been going for years. Same year, the studio ear turns into "
-        "Champagne — a mastering app built from fifteen years of finishing "
-        "his own records."
-    ),
-}
-
-
-def release_blurb(r: dict) -> str:
-    kind = kind_label(r["kind"]).lower()
-    when = pretty_date(r["releaseDate"]) or r["year"]
-    title = r["title"]
-    article = "an" if kind[0] in "aeiou" else "a"
-    extra = {
-        "album": "A full-length — the long version of whatever DeltaX was into that season.",
-        "ep": "A short chapter. In and out, no filler.",
-        "single": "One idea, finished and gone.",
-    }[r["kind"]]
-    return (
-        f"{title} is {article} {kind} by DeltaX — Logan Voss — out {when}. "
-        f"One more room in a catalog that runs past twenty-five albums and a "
-        f"few hundred singles, and keeps turning up in TV shows, commercials, "
-        f"movies, and videos all over the map. {extra} Stream it on Apple Music "
-        f"or Spotify, or dig through the free library on Pixabay, where the "
-        f"DeltaX discography has millions of plays and over 100,000 downloads."
-    )
 
 
 def write(path: Path, text: str) -> None:
@@ -229,6 +152,8 @@ def build_index() -> None:
             "genre": r["genre"],
             "tracks": r["tracks"],
             "cover": r["cover"],
+            "appleUrl": r["appleUrl"],
+            "spotifyUrl": spotify_search(r["title"]),
         }
         for r in CATALOG
     ]
@@ -240,7 +165,7 @@ def build_index() -> None:
     ld = json.dumps(ARTIST_LD)
     extra = f'<script type="application/ld+json">{ld}</script>'
     page = f"""{head(
-        "DeltaX — Logan Voss | The Official Catalog",
+        "DeltaX — Logan Voss | The Discography",
         "DeltaX is Logan Voss — a Los Angeles musician with 25+ albums and hundreds of singles, all in one cover-flow library. Music heard in TV, film, and creator content worldwide.",
         "",
         "assets/img/about/mural.jpg",
@@ -250,7 +175,7 @@ def build_index() -> None:
 {nav("music")}
 <main>
   <section class="hero" aria-label="Cover Flow">
-    <p class="hero-kicker">The complete catalog</p>
+    <p class="hero-kicker">The Discography</p>
     <div class="filters" role="tablist">
       <button class="filter is-on" data-filter="all">All</button>
       <button class="filter" data-filter="album">Albums</button>
@@ -264,9 +189,11 @@ def build_index() -> None:
       <h1 class="flow-title" id="flow-title">DeltaX</h1>
       <p class="flow-sub" id="flow-sub">Los Angeles · 1995</p>
       <p class="flow-count" id="flow-count"></p>
-      <a class="flow-cta" id="flow-cta" href="about.html">Open release</a>
+      <div class="flow-links">
+        <a class="btn" id="flow-apple" href="https://music.apple.com/us/artist/deltax/1620112963" target="_blank" rel="noopener">Apple Music</a>
+        <a class="btn ghost" id="flow-spotify" href="https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF" target="_blank" rel="noopener">Spotify</a>
+      </div>
     </div>
-    <p class="hint">Scroll, drag, or fling — click a cover to go inside</p>
   </section>
 </main>
 <script src="assets/js/catalog.js"></script>
@@ -299,7 +226,7 @@ def build_about() -> None:
     <h2>Fifteen years of music, finally in one room.</h2>
     <p class="lede">Rap first, as LOVO. Then the beats took the name. DeltaX never picked a genre — dance, house, dubstep, downtempo, meditation, hip-hop — and never stopped shipping.</p>
     <div class="prose">
-      <p>This site is the whole catalog in one place. The covers on the <a href="index.html">music page</a> are in the order they went out into the world — swipe through them like an old iPod, click one, and you're inside the record. Dates, tracks, links. No noise.</p>
+      <p>This site is the whole catalog in one place. The covers on the <a href="index.html">music page</a> are in the order they went out into the world — swipe through them like an old iPod, then open the one you're on in Apple Music or Spotify. No extra pages. No noise.</p>
     </div>
     <div class="stats">
       <div><span class="stat-n">25+</span><span class="stat-l">Studio albums</span></div>
@@ -310,14 +237,21 @@ def build_about() -> None:
   </section>
 
   <section class="about-hero">
-    <div class="photo-spread">
-      <img class="tall" src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite with his hands in the air" width="1600" height="2400">
-      <div class="stack">
-        <img src="assets/img/about/mural.jpg" alt="Logan Voss in a white t-shirt standing before a colorful mural in Los Angeles" width="1600" height="1200">
-        <img src="assets/img/about/ocean-jump.jpg" alt="Logan Voss jumping in the air by the ocean" width="1600" height="1200">
-      </div>
+    <div class="photo-gallery">
+      <figure class="photo-wide">
+        <img src="assets/img/about/mural.jpg" alt="Logan Voss in a white t-shirt standing before a colorful mural in Los Angeles" width="2400" height="1800">
+      </figure>
+      <figure>
+        <img src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite with his hands in the air" width="2400" height="3600">
+      </figure>
+      <figure>
+        <img src="assets/img/about/mm7-artwork.jpg" alt="Meditation Music 7 album artwork by DeltaX, photographed by Logan Voss" width="2000" height="2667">
+      </figure>
+      <figure class="photo-wide">
+        <img src="assets/img/about/ocean-jump.jpg" alt="Logan Voss jumping in the air by the ocean" width="2400" height="1800">
+      </figure>
     </div>
-    <p class="caption">Photographs by Logan Voss — Yosemite, a Los Angeles mural, and the Pacific. More on Unsplash @loganvoss.</p>
+    <p class="caption">Photographs by Logan Voss — a Los Angeles mural, Yosemite, Meditation Music 7, and the Pacific.</p>
   </section>
 
   <section class="section">
@@ -355,17 +289,14 @@ def build_about() -> None:
     <p class="eyebrow">Now</p>
     <h2>Los Angeles, these days.</h2>
     <div class="prose">
-      <p>The records are half of it. Logan shoots his own photographs — the mural, the ocean jump, the Yosemite summit on this page — and publishes them on <a href="https://unsplash.com/@loganvoss">Unsplash</a> and <a href="https://www.pexels.com/@logan/">Pexels</a>. He builds small, useful apps for the <a href="https://apps.apple.com/us/developer/logan-voss/id1813258380">App Store</a>. Two YouTube channels hold the moving pictures: <a href="https://www.youtube.com/@DeltaXMusic">@DeltaXMusic</a> for the records, <a href="https://www.youtube.com/@loganxvoss">@loganxvoss</a> for everything else.</p>
+      <p>The records are half of it. Logan shoots his own photographs — the mural, the ocean jump, the Yosemite summit on this page — and the covers too. He also builds small, useful apps. The moving pictures live on <a href="https://www.youtube.com/@DeltaXMusic">@DeltaXMusic</a>.</p>
       <p>And there's Champagne. After fifteen years of mixing and mastering his own catalog — and a long, curious dive into AI music — he built the mastering tool he always wanted. One click, four tempers, finished record. The studio ear, turned into software.</p>
-      <p>The personal site, <a href="https://www.loganvoss.com">loganvoss.com</a>, says artist, designer, musician. The GitHub bio says <em>inspire the universe</em>. Both check out. The job is simple: make the work, put it where people can use it, stay in the room.</p>
+      <p>The personal site, <a href="https://www.loganvoss.com">loganvoss.com</a>, says artist, designer, musician. The job is simple: make the work, put it where people can use it, stay in the room.</p>
     </div>
-    <div class="photo-feature">
-      <img src="assets/img/about/mm7-artwork.jpg" alt="Meditation Music 7 album artwork by DeltaX, photographed by Logan Voss" width="1200" height="1600">
-      <div>
-        <p class="eyebrow">Also his</p>
-        <h3 style="font-size:28px;margin:0 0 12px;letter-spacing:-0.02em">The covers are his too.</h3>
-        <p class="prose">The artwork for the Meditation Music series — including this frame from MM7 — started as Logan's own photography. Same eye as the pictures above, pointed at the quiet stuff.</p>
-      </div>
+    <div class="photo-note">
+      <p class="eyebrow">Also his</p>
+      <h3 style="font-size:28px;margin:0 0 12px;letter-spacing:-0.02em">The covers are his too.</h3>
+      <p class="prose">The artwork for the Meditation Music series — including the MM7 frame in the photos above — started as Logan's own photography. Same eye, pointed at the quiet stuff.</p>
     </div>
   </section>
 
@@ -406,16 +337,10 @@ SOCIALS = [
     ("Apple Music", "The complete DeltaX discography.", "https://music.apple.com/us/artist/deltax/1620112963"),
     ("Spotify", "Albums, singles, and the live catalog.", "https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF"),
     ("YouTube — DeltaX", "The official music channel.", "https://www.youtube.com/@DeltaXMusic"),
-    ("YouTube — Logan", "Everything else, on tape.", "https://www.youtube.com/@loganxvoss"),
     ("Instagram", "@loganxvoss", "https://www.instagram.com/loganxvoss/"),
     ("X", "@LoganxVoss", "https://x.com/LoganxVoss"),
-    ("Threads", "@loganxvoss", "https://www.threads.com/@loganxvoss"),
     ("Pixabay", "The free library. Millions of plays.", "https://pixabay.com/users/deltax-music-34692063/"),
-    ("Unsplash", "Photographs by Logan Voss.", "https://unsplash.com/@loganvoss"),
-    ("Pexels", "More stills from the same eye.", "https://www.pexels.com/@logan/"),
     ("Bandcamp", "High-resolution albums, straight from the desk.", "https://deltaxxx.bandcamp.com/"),
-    ("App Store", "Small, useful apps by Logan Voss.", "https://apps.apple.com/us/developer/logan-voss/id1813258380"),
-    ("GitHub", "inspire the universe", "https://github.com/LoganVoss"),
     ("loganvoss.com", "Artist, designer, musician.", "https://www.loganvoss.com"),
 ]
 
@@ -427,7 +352,7 @@ def build_socials() -> None:
     )
     page = f"""{head(
         "DeltaX Socials — Every Official Door",
-        "Every official DeltaX and Logan Voss profile — Apple Music, Spotify, YouTube, Instagram, X, Pixabay, Unsplash, Bandcamp, GitHub, and more.",
+        "Official DeltaX and Logan Voss doors — Apple Music, Spotify, YouTube, Instagram, X, Pixabay, Bandcamp, and loganvoss.com.",
         "socials.html",
         "assets/img/about/mural.jpg",
     )}
@@ -438,7 +363,7 @@ def build_socials() -> None:
   <h1>Every door leads back to the music.</h1>
   <p class="lede">DeltaX is the records. Logan Voss is the name on the photos, the apps, and the posts. Same person — use whichever door you already open.</p>
   <div class="prose">
-    <p>The catalog lives on the streaming services. The free library lives on Pixabay. The photos live on Unsplash and Pexels. The apps live on the App Store. It all connects back here.</p>
+    <p>The catalog lives on the streaming services. The free library lives on Pixabay. The rest is just the person behind the records.</p>
   </div>
   <div class="social-list">{cards}</div>
 </main>
@@ -539,87 +464,6 @@ def build_champagne() -> None:
     write(ROOT / "champagne.html", page)
 
 
-def build_release(r: dict) -> None:
-    tracks = r.get("tracklist") or []
-    rows = []
-    for t in tracks:
-        title = t.get("title") or "Untitled"
-        href = t.get("appleUrl") or r["appleUrl"]
-        rows.append(
-            f'<li><span class="n">{t.get("n") or ""}</span>'
-            f'<a href="{esc(href)}" target="_blank" rel="noopener">{esc(title)}</a>'
-            f'<span class="t">{ms_to_time(t.get("ms"))}</span></li>'
-        )
-    track_block = (
-        f'<h2>Tracks</h2><ol class="tracklist">{"".join(rows)}</ol>' if rows else ""
-    )
-    spotify_q = "https://open.spotify.com/search/" + r["title"].replace(" ", "%20") + "%20DeltaX"
-    blurb = release_blurb(r)
-    others = [x for x in CATALOG if x["year"] == r["year"] and x["id"] != r["id"]][:8]
-    more = "".join(
-        f'<a class="card" href="{esc(x["slug"])}.html"><img src="../assets/img/{esc(x["cover"])}" alt="{esc(x["title"])} cover art" loading="lazy" width="400" height="400"><div class="card-title">{esc(x["title"])}</div></a>'
-        for x in others
-    )
-    ld = {
-        "@context": "https://schema.org",
-        "@type": "MusicAlbum" if r["kind"] != "single" else "MusicRecording",
-        "name": r["title"],
-        "byArtist": {"@id": f"{SITE}/#deltax", "name": "DeltaX"},
-        "datePublished": r["releaseDate"],
-        "genre": r["genre"],
-        "image": f"{SITE}/assets/img/{r['cover']}",
-        "url": f"{SITE}/music/{r['slug']}.html",
-        "numTracks": r["tracks"],
-        "sameAs": r["appleUrl"],
-    }
-    extra = f'<script type="application/ld+json">{json.dumps(ld)}</script>'
-    page = f"""{head(
-        f"{r['title']} — DeltaX ({r['year']})",
-        blurb[:220],
-        f"music/{r['slug']}.html",
-        f"assets/img/{r['cover']}",
-        extra,
-        prefix="../",
-    )}
-<body>
-{nav("music", "../")}
-<main class="release">
-  <div class="release-art">
-    <img src="../assets/img/{esc(r['cover'])}" alt="{esc(r['title'])} album cover by DeltaX" width="1000" height="1000">
-  </div>
-  <div>
-    <p class="eyebrow">{kind_label(r['kind'])}</p>
-    <h1>{esc(r['title'])}</h1>
-    <div class="meta-row">
-      <span>{pretty_date(r['releaseDate'])}</span>
-      <span>{esc(r['genre'])}</span>
-      <span>{r['tracks']} track{'s' if r['tracks'] != 1 else ''}</span>
-      <span>Los Angeles</span>
-    </div>
-    <div class="prose"><p>{esc(blurb)}</p>
-    <p>{esc(r['title'])} sits in the official DeltaX catalog in release order — the same order as the cover flow on the <a href="../index.html">music home</a>. Logan Voss writes, produces, and releases as DeltaX from Los Angeles, in a practice that started with rap as LOVO and widened into every genre he felt like making. If you got here from a Pixabay download, a video, or a commercial — welcome. This page is the source: the art, the date, the tracks, the stores.</p></div>
-    <div class="links">
-      <a class="btn" href="{esc(r['appleUrl'])}" target="_blank" rel="noopener">Apple Music</a>
-      <a class="btn ghost" href="{esc(spotify_q)}" target="_blank" rel="noopener">Spotify</a>
-      <a class="btn ghost" href="https://music.apple.com/us/artist/deltax/1620112963" target="_blank" rel="noopener">All DeltaX</a>
-    </div>
-    {track_block}
-    <div class="prose" style="margin-top:40px">
-      <p>DeltaX — Logan Mackenzie Voss — is a Los Angeles musician born in San Francisco on December 25, 1995, raised partly in Chicago, and back in California ever since. His music is used in television, commercials, films, and creator content around the world, and the whole catalog is free for creators on Pixabay. Champagne, his AI mastering app, came out of the same years that produced this record.</p>
-    </div>
-  </div>
-</main>
-<section class="section wide">
-  <p class="eyebrow">Also in {esc(r['year'])}</p>
-  <div class="grid">{more}</div>
-</section>
-{foot("../")}
-<script src="../assets/js/site.js"></script>
-</body>
-</html>"""
-    write(ROOT / "music" / f"{r['slug']}.html", page)
-
-
 def build_meta() -> None:
     write(ROOT / "CNAME", "www.deltaxmusic.com\n")
     write(ROOT / ".nojekyll", "")
@@ -628,11 +472,10 @@ def build_meta() -> None:
         f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n",
     )
     urls = ["", "about.html", "socials.html", "contact.html", "champagne.html"]
-    urls += [f"music/{r['slug']}.html" for r in CATALOG]
     body = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         loc = f"{SITE}/{u}" if u else f"{SITE}/"
-        pri = "1.0" if u == "" else ("0.8" if not u.startswith("music/") else "0.6")
+        pri = "1.0" if u == "" else "0.8"
         body.append(
             f"<url><loc>{loc}</loc><lastmod>{TODAY}</lastmod><changefreq>weekly</changefreq><priority>{pri}</priority></url>"
         )
@@ -671,7 +514,7 @@ def build_meta() -> None:
 
 Official artist site for **DeltaX** (Logan Mackenzie Voss) — [deltaxmusic.com](https://www.deltaxmusic.com).
 
-Static GitHub Pages project. Cover-flow catalog, SEO release pages, about, socials, contact, Champagne.
+Static GitHub Pages project. Cover-flow discography, about, socials, contact, Champagne.
 
 ## Local
 
@@ -701,13 +544,14 @@ python3 scripts/build.py
 
 def main() -> None:
     print(f"Building {len(CATALOG)} releases…")
+    music_dir = ROOT / "music"
+    if music_dir.exists():
+        shutil.rmtree(music_dir)
     build_index()
     build_about()
     build_socials()
     build_contact()
     build_champagne()
-    for r in CATALOG:
-        build_release(r)
     build_meta()
     print("Done.")
 

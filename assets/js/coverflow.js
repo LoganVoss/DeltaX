@@ -4,7 +4,8 @@
   const titleEl = document.getElementById("flow-title");
   const subEl = document.getElementById("flow-sub");
   const countEl = document.getElementById("flow-count");
-  const ctaEl = document.getElementById("flow-cta");
+  const appleEl = document.getElementById("flow-apple");
+  const spotifyEl = document.getElementById("flow-spotify");
   if (!stage || !window.DELTAX_CATALOG) return;
 
   const all = window.DELTAX_CATALOG.slice().sort((a, b) =>
@@ -35,9 +36,9 @@
     items = list;
     stage.innerHTML = "";
     nodes = items.map((rel) => {
-      const el = document.createElement("a");
+      const el = document.createElement("button");
+      el.type = "button";
       el.className = "flow-item is-hidden";
-      el.href = `music/${rel.slug}.html`;
       el.setAttribute("aria-label", `${rel.title}, ${rel.year}`);
       const img = document.createElement("img");
       img.className = "cover";
@@ -53,13 +54,9 @@
       el.append(img, reflect);
       el.addEventListener("dragstart", (e) => e.preventDefault());
       el.addEventListener("click", (e) => {
-        if (Math.abs(e.clientX - downX) > 8) {
-          e.preventDefault();
-          return;
-        }
+        if (Math.abs(e.clientX - downX) > 8) return;
         const i = items.indexOf(rel);
         if (Math.abs(i - current) > 0.35) {
-          e.preventDefault();
           target = i;
           mode = "spring";
         }
@@ -140,8 +137,12 @@
       : rel.year;
     const sub = `${kind}  ·  ${when}  ·  ${rel.genre}  ·  ${rel.tracks} track${rel.tracks === 1 ? "" : "s"}`;
     if (subEl.textContent !== sub) subEl.textContent = sub;
-    const href = `music/${rel.slug}.html`;
-    if (ctaEl.getAttribute("href") !== href) ctaEl.setAttribute("href", href);
+    if (appleEl && rel.appleUrl && appleEl.getAttribute("href") !== rel.appleUrl) {
+      appleEl.setAttribute("href", rel.appleUrl);
+    }
+    if (spotifyEl && rel.spotifyUrl && spotifyEl.getAttribute("href") !== rel.spotifyUrl) {
+      spotifyEl.setAttribute("href", rel.spotifyUrl);
+    }
     if (countEl) {
       const c = `${i + 1} / ${items.length}`;
       if (countEl.textContent !== c) countEl.textContent = c;
