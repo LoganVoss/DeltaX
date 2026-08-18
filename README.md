@@ -1,6 +1,6 @@
 # DeltaX
 
-Official artist site for **DeltaX** (Logan Mackenzie Voss) — [deltaxmusic.com](https://www.deltaxmusic.com).
+Official artist site for **DeltaX** (Logan Mackenzie Voss). [deltaxmusic.com](https://www.deltaxmusic.com).
 
 Static GitHub Pages project. Cover-flow discography, about, socials, and Champagne.
 
