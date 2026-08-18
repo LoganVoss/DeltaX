@@ -366,10 +366,10 @@ def build_champagne() -> None:
     <div>
       <p class="eyebrow">Champagne</p>
       <h1>Master AI music.</h1>
-      <p class="lede">Drop in a track, pick a style, and export a finished master. $49.99 once. Use it as much as you want.</p>
+      <p class="lede">Drop in a track, pick a style, and export a finished master. One-click, perfection.</p>
       <div class="champagne-buy">
         <span class="price">$49.99</span>
-        <span class="price-note">One purchase. Unlimited masters.</span>
+        <span class="price-note">One price. Unlimited masters.</span>
       </div>
       <div class="links">
         <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
@@ -412,12 +412,12 @@ def build_champagne() -> None:
   <section class="section">
     <div class="champagne-detail">
       <div>
-        <p class="eyebrow">Details</p>
-        <h2>What it does</h2>
+        <p class="eyebrow">How</p>
+        <h2>Under The Hood</h2>
       </div>
       <div class="prose">
         <p>Champagne analyzes the track, then applies level, EQ, compression, and peak control. Processing runs on your device.</p>
-        <p>It does not use AI to master the audio. The engine is digital signal processing, built from 15 years of making records as DeltaX.</p>
+        <p>It does not use AI to master the audio. The engine is digital signal processing, built from 15 years of experience in sound design.</p>
       </div>
     </div>
   </section>
@@ -428,7 +428,7 @@ def build_champagne() -> None:
     <p class="lede">No subscription. No credits.</p>
     <div class="champagne-buy">
       <span class="price">$49.99</span>
-      <span class="price-note">One purchase. Unlimited masters.</span>
+      <span class="price-note">One price. Unlimited masters.</span>
     </div>
     <div class="links">
       <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
