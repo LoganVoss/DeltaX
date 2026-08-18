@@ -413,7 +413,7 @@ def build_champagne() -> None:
     <div class="champagne-detail">
       <div>
         <p class="eyebrow">How</p>
-        <h2>Under The Hood</h2>
+        <h2>Under the hood</h2>
       </div>
       <div class="prose">
         <p>Champagne analyzes the track, then applies level, EQ, compression, and peak control. Processing runs on your device.</p>
