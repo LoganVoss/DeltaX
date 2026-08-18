@@ -248,7 +248,7 @@ def build_about() -> None:
     extra = f'<script type="application/ld+json">{json.dumps(ARTIST_LD)}</script>'
     page = f"""{head(
         "About DeltaX | Logan Voss",
-        "I'm Logan Voss. I make music as DeltaX in Los Angeles. 25+ albums, hundreds of releases, and a catalog that keeps wandering.",
+        "Logan Voss is DeltaX. 15+ years of dope records, from LOVO mixtapes to dance music, Pixabay, and Champagne.",
         "about.html",
         "assets/img/about/mural.jpg",
         extra,
@@ -258,8 +258,8 @@ def build_about() -> None:
 <main>
   <section class="about-hero">
     <p class="eyebrow">About</p>
-    <h1>Hey. I'm Logan.</h1>
-    <p class="lede">I make music as DeltaX. Apparently I've been doing this for fifteen years and still haven't figured out how to pick one genre.</p>
+    <h1>Logan Voss is DeltaX.</h1>
+    <p class="lede">15+ years of dope records.</p>
     <figure class="story-image story-image-wide">
       <img src="assets/img/about/mural.jpg" alt="Logan Voss standing in front of a mural in Los Angeles" width="2400" height="1800">
       <figcaption>Los Angeles</figcaption>
@@ -268,12 +268,12 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Work</p>
-    <h2>Hip-hop roots to late night raves.</h2>
+    <h2>DatPiff to dance music.</h2>
     <div class="story-split">
       <div class="prose">
-        <p>I started making music as LOVO. I was rapping, writing constantly, and slowly getting more interested in the production underneath everything. Eventually making the beat became more exciting than figuring out what to say over it.</p>
-        <p>My love for electronic music came from going to raves. Late nights, big rooms, and the feeling that a track could change the temperature of the whole place. DeltaX grew out of that.</p>
-        <p>I've never been particularly interested in staying in one genre. I've made hip-hop, house, dance music, dubstep, ambient records, meditation albums, and whatever else sounded interesting that week. I like making whatever I'm excited about making. That's probably why the catalog is now 25+ albums and hundreds of releases deep.</p>
+        <p>When I was in high school, I got really into DatPiff.com. I was obsessed with finding the latest new hip-hop records. That quickly turned into wanting to make my own music, but I had no idea where to start. I taught myself how to do everything. Steal beats, write lyrics, and publish to streaming services. My rap stage name is LOVO, and you can find my mixtapes on <a class="yt-link" href="https://www.youtube.com/watch?v=KkypqGfXnGc&amp;list=PLi2J15BKiAqzJ5OYQhubeDC_LaXn4KllS" target="_blank" rel="noopener">YouTube</a>.</p>
+        <p>Throughout college, I got more into electronic music. Eventually, the beats took over, and I went all in on creating dance. That's where DeltaX was born.</p>
+        <p>Again, I had no idea where to start with producing electronic dance music. So I taught myself production. My best work is created using samples. I stack them to create something totally new and exciting. You can learn how I make music on <a class="yt-link" href="https://www.youtube.com/watch?v=hF_60YaPTkM&amp;list=PL5lvwEBe-mTsi4fvG8kdIRIKpDYHBAwJn" target="_blank" rel="noopener">YouTube</a>.</p>
       </div>
       <figure class="story-image story-image-portrait">
         <img src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite" width="2400" height="3600">
@@ -290,7 +290,7 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Background</p>
-    <h2>Three cities. One long playlist.</h2>
+    <h2>Two states. One love.</h2>
     <div class="story-split story-split-reverse">
       <figure class="story-image story-image-portrait">
         <img src="assets/img/about/mm7-artwork.jpg" alt="Meditation Music 7 artwork photographed by Logan Voss" width="2000" height="2667">
@@ -298,19 +298,17 @@ def build_about() -> None:
       </figure>
       <div class="prose">
         <p>I was born in San Francisco on Christmas Day, 1995.</p>
-        <p>My family moved to Chicago when I was ten. Chicago ended up being a pretty incredible place to absorb music. House music is part of the city's DNA, hip-hop was everywhere, and my taste started stretching in a dozen directions at once.</p>
-        <p>College brought me back to California, first to San Luis Obispo and eventually Los Angeles. LA is where most of the DeltaX catalog happened.</p>
+        <p>At age ten, I moved to Chicago, which is where my love for hip-hop was born. When I moved back to California at 18 for college in San Luis Obispo, my love for electronic dance music blossomed. No matter the genre, music has remained an important part of my everyday flow.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <p class="eyebrow">Reach</p>
-    <h2>I wanted the music to be heard.</h2>
+    <h2>Music is created to be heard.</h2>
     <div class="prose">
-      <p>At some point I started putting tracks on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a> for people to use for free. I didn't really know where that would lead.</p>
-      <p>Then people started making things with them. Films. YouTube videos. Ads. Short films. Random projects from people I've never met in countries I've never visited.</p>
-      <p>More than 100,000 downloads later, that's become one of my favorite parts of releasing music. You make something alone in a room, put it online, and suddenly it belongs to thousands of other stories.</p>
+      <p>After receiving almost no response from releasing my tracks for multiple years, I decided it was time to let go of the way I thought things needed to be for my success in the music industry. Part of my process for letting go involved putting my entire DeltaX discography on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a> for people to download and use for free.</p>
+      <p>This kicked off a viral marketing campaign, racking up millions of streams and hundreds of thousands of downloads. I was really nervous to give away my precious collection that I worked so hard on, but it was time. And wow, did it pay off.</p>
     </div>
   </section>
 
@@ -325,16 +323,10 @@ def build_about() -> None:
     <p class="eyebrow">Now</p>
     <h2>Still cooking.</h2>
     <div class="prose">
-      <p>Music is still at the center of everything I do, but I've never been great at keeping creative disciplines separated. I shoot photography, design my own artwork, make videos, and build apps.</p>
-      <p>Recently I've also been experimenting with AI music tools. Most of the DeltaX catalog has nothing to do with AI. I got interested because I wanted to understand where the technology was actually good, where it fell apart, and what musicians could do with it.</p>
-      <p>One thing kept bothering me: the songs often sounded unfinished. So I built <a href="champagne.html">Champagne</a>.</p>
-      <p>That's pretty representative of how I work. If something interests me enough, eventually I'm probably going to make a record about it, photograph it, design something for it, or build an app.</p>
-    </div>
-    <div class="about-cta">
-      <div class="links">
-        <a class="btn" href="index.html">Music</a>
-        <a class="btn ghost" href="socials.html">Socials</a>
-      </div>
+      <p>Things have gotten a lot more busy lately. With music taking off, I've been spending more of my time exploring other artistic disciplines.</p>
+      <p>One of the things I've researched during this time is AI music production. While initially, I was turned off by the entire idea of clicking a button to make a song, I've warmed up to what's possible with the new technology.</p>
+      <p>This research led me to create <a href="champagne.html">Champagne</a>, an AI music mastering application that makes thin, weak sounding AI songs into full-bodied, radio-ready masterpieces.</p>
+      <p>I'm still not sure if AI music fits into my workflow as a musician, but I'm happy that I was able to contribute a tool for other aspiring artists to make their work more listenable.</p>
     </div>
   </section>
 </main>

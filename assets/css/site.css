@@ -279,6 +279,10 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 }
 .prose p { margin: 0 0 1.15em; }
 .prose a { border-bottom: 1px solid var(--line-strong); }
+.yt-link {
+  color: #0066cc;
+  border-bottom-color: currentColor;
+}
 .pull {
   font-family: var(--serif);
   font-style: italic;
