@@ -107,12 +107,13 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ——— Cover Flow ——— */
 .hero {
+  --cover: min(54vh, 520px);
+  height: calc(100svh - var(--nav-h));
   min-height: calc(100svh - var(--nav-h));
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 0 40px;
+  display: grid;
+  grid-template-rows: auto auto minmax(0, 1fr) auto;
+  justify-items: center;
+  padding: 16px 0 28px;
   overflow: hidden;
   position: relative;
 }
@@ -125,9 +126,11 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .flow-wrap {
   width: 100%;
-  height: min(66vh, 680px);
+  height: auto;
+  min-height: 0;
+  align-self: stretch;
   perspective: 1400px;
-  perspective-origin: 50% 42%;
+  perspective-origin: 50% 45%;
   touch-action: pan-y;
   user-select: none;
   cursor: grab;
@@ -142,11 +145,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .flow-item {
   position: absolute;
-  top: 4%;
+  top: 50%;
   left: 50%;
-  width: min(44vh, 460px);
+  width: var(--cover);
   aspect-ratio: 1;
-  margin-left: calc(min(44vh, 460px) / -2);
+  margin-left: calc(var(--cover) / -2);
+  margin-top: calc(var(--cover) / -2);
   padding: 0;
   border: 0;
   background: none;
@@ -167,7 +171,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   left: 0;
   top: calc(100% + 1px);
   width: 100%;
-  height: 48%;
+  height: 30%;
   transform: scaleY(-1);
   transform-origin: top;
   opacity: 0.38;
@@ -185,9 +189,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .flow-meta {
   text-align: center;
-  margin-top: 8px;
-  min-height: 92px;
-  padding: 0 24px;
+  margin-top: 0;
+  padding: 8px 24px 0;
 }
 .flow-title {
   font-size: clamp(28px, 4vw, 44px);
@@ -686,6 +689,7 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
   background: #f7f3e9;
 }
 .champagne-close .lede { margin-left: auto; margin-right: auto; }
+.champagne-close .lede + .lede { margin-top: 8px; }
 .champagne-close .champagne-buy,
 .champagne-close .links { justify-content: center; }
 
@@ -738,19 +742,16 @@ footer {
   .champagne-process,
   .champagne-styles,
   .champagne-close { padding-top: 88px; padding-bottom: 88px; }
-  .flow-wrap { height: min(58vh, 520px); }
-  .flow-item { width: min(52vw, 230px); margin-left: calc(min(52vw, 230px) / -2); }
+  .hero { --cover: min(52vw, 230px); padding: 10px 0 20px; }
   footer { flex-direction: column; padding: 32px 20px 48px; }
 }
 
 @media (orientation: landscape) and (max-height: 500px) {
-  .hero { min-height: calc(100svh - var(--nav-h)); padding: 0; justify-content: flex-start; }
+  .hero { --cover: min(46vh, 200px); padding: 4px 0 8px; }
   .hero-kicker { display: none; }
   .filters { margin: 4px 0 0; }
   .filter { padding: 5px 11px; font-size: 10px; }
-  .flow-wrap { height: calc(100svh - 196px); min-height: 200px; }
-  .flow-item { width: min(50vh, 210px); margin-left: calc(min(50vh, 210px) / -2); top: 0; }
-  .flow-meta { min-height: 60px; padding-top: 2px; }
+  .flow-meta { padding-top: 4px; }
   .flow-title { font-size: 22px; }
   .flow-sub { font-size: 11px; }
   .flow-count { display: none; }

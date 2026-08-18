@@ -259,7 +259,7 @@ def build_about() -> None:
   <section class="about-hero">
     <p class="eyebrow">About</p>
     <h1>Logan Voss is DeltaX.</h1>
-    <p class="lede">Musician and producer. Based in Los Angeles.</p>
+    <p class="lede">Los Angeles musician. Fifteen years of records. Still shipping.</p>
     <figure class="story-image story-image-wide">
       <img src="assets/img/about/mural.jpg" alt="Logan Voss standing in front of a mural in Los Angeles" width="2400" height="1800">
       <figcaption>Los Angeles</figcaption>
@@ -268,11 +268,12 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Work</p>
-    <h2>The catalog</h2>
+    <h2>Rap first. Then the beats took over.</h2>
     <div class="story-split">
       <div class="prose">
-        <p>Logan started as a rapper under the name LOVO. Production took over, and the project became DeltaX.</p>
-        <p>There is no single genre. Dance, house, hip-hop, meditation, and a lot in between. 25+ albums. Hundreds of releases. Fifteen years of work.</p>
+        <p>The first name was LOVO. Logan was rapping, writing bars, and learning how a beat is supposed to sit under a voice. Then the instrumentals started winning. Production became the job. DeltaX became the name on the records.</p>
+        <p>He never picked one lane and stayed there. A club record one week. A meditation album the next. House, hip-hop, dance, dubstep, downtempo. If it sounded good, it went out.</p>
+        <p>25+ albums. Hundreds of releases. Fifteen years of finishing the song and putting it in the world.</p>
       </div>
       <figure class="story-image story-image-portrait">
         <img src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite" width="2400" height="3600">
@@ -289,23 +290,24 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Background</p>
-    <h2>San Francisco. Chicago. Los Angeles.</h2>
+    <h2>Three cities. One long playlist.</h2>
     <div class="story-split story-split-reverse">
       <figure class="story-image story-image-portrait">
         <img src="assets/img/about/mm7-artwork.jpg" alt="Meditation Music 7 artwork photographed by Logan Voss" width="2000" height="2667">
         <figcaption>Meditation Music 7</figcaption>
       </figure>
       <div class="prose">
-        <p>Born in San Francisco on December 25, 1995. Moved to Chicago at ten. Came back to California for college and stayed in Los Angeles.</p>
+        <p>Born in San Francisco on Christmas Day, 1995. At ten, the family moved to Chicago. Different weather. Different radio. A house-music city that still knows hip-hop.</p>
+        <p>College brought him back west, this time to San Luis Obispo. After school he moved to Los Angeles, and that is where the catalog got built.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <p class="eyebrow">Reach</p>
-    <h2>How people found the music</h2>
+    <h2>Give the music somewhere to go.</h2>
     <div class="prose">
-      <p>When streaming was slow, Logan put the catalog on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a> for anyone to use. The tracks showed up in films, TV, ads, and videos. Over 100,000 downloads. The streams came after.</p>
+      <p>When the streaming graph sat still, Logan put the catalog on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a>, free for anyone making anything. Editors, filmmakers, and kids with timelines started cutting it in. Films, TV, ads, videos in rooms he will never walk into. Over 100,000 downloads later, the records had a life of their own.</p>
     </div>
   </section>
 
@@ -318,10 +320,10 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Now</p>
-    <h2>Records, photos, and tools</h2>
+    <h2>Still in the room.</h2>
     <div class="prose">
-      <p>Music is still the main work. Logan also shoots his own photos, designs covers, and builds small apps.</p>
-      <p>Most of the DeltaX catalog is not AI. He started using AI music tools to learn the new landscape, not to replace how he makes records. The songs came out unfinished. That is why he built <a href="champagne.html">Champagne</a>.</p>
+      <p>Music is still the main work. Logan also shoots his own photos, designs the covers, and builds apps.</p>
+      <p>Most of the DeltaX catalog is not AI. He started using AI music tools to learn what the new stuff can actually do, not to replace how he makes records. The songs came out thin. <a href="champagne.html">Champagne</a> is what he built to finish them.</p>
     </div>
     <div class="about-cta">
       <div class="links">
@@ -426,10 +428,11 @@ def build_champagne() -> None:
   <section class="section champagne-close">
     <p class="eyebrow">Price</p>
     <h2>Buy it once.</h2>
-    <p class="lede">No subscription. No credits. Unlimited masters.</p>
+    <p class="lede">No subscription. No credits.</p>
+    <p class="lede">No meter running in the background.</p>
     <div class="champagne-buy">
       <span class="price">$49.99</span>
-      <span class="price-note">One purchase.</span>
+      <span class="price-note">One purchase. Unlimited masters.</span>
     </div>
     <div class="links">
       <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
