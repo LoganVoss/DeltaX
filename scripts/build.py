@@ -248,7 +248,7 @@ def build_about() -> None:
     extra = f'<script type="application/ld+json">{json.dumps(ARTIST_LD)}</script>'
     page = f"""{head(
         "About DeltaX | Logan Voss",
-        "Logan Voss is DeltaX, a Los Angeles musician and producer. 25+ albums, hundreds of releases, and music used worldwide.",
+        "I'm Logan Voss. I make music as DeltaX in Los Angeles. 25+ albums, hundreds of releases, and a catalog that keeps wandering.",
         "about.html",
         "assets/img/about/mural.jpg",
         extra,
@@ -258,8 +258,8 @@ def build_about() -> None:
 <main>
   <section class="about-hero">
     <p class="eyebrow">About</p>
-    <h1>Logan Voss is DeltaX.</h1>
-    <p class="lede">Los Angeles musician. Fifteen years of records. Still shipping.</p>
+    <h1>Hey. I'm Logan.</h1>
+    <p class="lede">I make music as DeltaX. Apparently I've been doing this for fifteen years and still haven't figured out how to pick one genre.</p>
     <figure class="story-image story-image-wide">
       <img src="assets/img/about/mural.jpg" alt="Logan Voss standing in front of a mural in Los Angeles" width="2400" height="1800">
       <figcaption>Los Angeles</figcaption>
@@ -268,12 +268,12 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Work</p>
-    <h2>Rap first. Then the beats took over.</h2>
+    <h2>Hip-hop roots to late night raves.</h2>
     <div class="story-split">
       <div class="prose">
-        <p>The first name was LOVO. Logan was rapping, writing bars, and learning how a beat is supposed to sit under a voice. Then the instrumentals started winning. Production became the job. DeltaX became the name on the records.</p>
-        <p>He never picked one lane and stayed there. A club record one week. A meditation album the next. House, hip-hop, dance, dubstep, downtempo. If it sounded good, it went out.</p>
-        <p>25+ albums. Hundreds of releases. Fifteen years of finishing the song and putting it in the world.</p>
+        <p>I started making music as LOVO. I was rapping, writing constantly, and slowly getting more interested in the production underneath everything. Eventually making the beat became more exciting than figuring out what to say over it.</p>
+        <p>My love for electronic music came from going to raves. Late nights, big rooms, and the feeling that a track could change the temperature of the whole place. DeltaX grew out of that.</p>
+        <p>I've never been particularly interested in staying in one genre. I've made hip-hop, house, dance music, dubstep, ambient records, meditation albums, and whatever else sounded interesting that week. I like making whatever I'm excited about making. That's probably why the catalog is now 25+ albums and hundreds of releases deep.</p>
       </div>
       <figure class="story-image story-image-portrait">
         <img src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite" width="2400" height="3600">
@@ -297,17 +297,20 @@ def build_about() -> None:
         <figcaption>Meditation Music 7</figcaption>
       </figure>
       <div class="prose">
-        <p>Born in San Francisco on Christmas Day, 1995. At ten, the family moved to Chicago. Different weather. Different radio. A house-music city that still knows hip-hop.</p>
-        <p>College brought him back west, this time to San Luis Obispo. After school he moved to Los Angeles, and that is where the catalog got built.</p>
+        <p>I was born in San Francisco on Christmas Day, 1995.</p>
+        <p>My family moved to Chicago when I was ten. Chicago ended up being a pretty incredible place to absorb music. House music is part of the city's DNA, hip-hop was everywhere, and my taste started stretching in a dozen directions at once.</p>
+        <p>College brought me back to California, first to San Luis Obispo and eventually Los Angeles. LA is where most of the DeltaX catalog happened.</p>
       </div>
     </div>
   </section>
 
   <section class="section">
     <p class="eyebrow">Reach</p>
-    <h2>Give the music somewhere to go.</h2>
+    <h2>I wanted the music to be heard.</h2>
     <div class="prose">
-      <p>When the streaming graph sat still, Logan put the catalog on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a>, free for anyone making anything. Editors, filmmakers, and kids with timelines started cutting it in. Films, TV, ads, videos in rooms he will never walk into. Over 100,000 downloads later, the records had a life of their own.</p>
+      <p>At some point I started putting tracks on <a href="https://pixabay.com/users/deltax-music-34692063/">Pixabay</a> for people to use for free. I didn't really know where that would lead.</p>
+      <p>Then people started making things with them. Films. YouTube videos. Ads. Short films. Random projects from people I've never met in countries I've never visited.</p>
+      <p>More than 100,000 downloads later, that's become one of my favorite parts of releasing music. You make something alone in a room, put it online, and suddenly it belongs to thousands of other stories.</p>
     </div>
   </section>
 
@@ -320,10 +323,12 @@ def build_about() -> None:
 
   <section class="section">
     <p class="eyebrow">Now</p>
-    <h2>Still in the room.</h2>
+    <h2>Still cooking.</h2>
     <div class="prose">
-      <p>Music is still the main work. Logan also shoots his own photos, designs the covers, and builds apps.</p>
-      <p>Most of the DeltaX catalog is not AI. He started using AI music tools to learn what the new stuff can actually do, not to replace how he makes records. The songs came out thin. <a href="champagne.html">Champagne</a> is what he built to finish them.</p>
+      <p>Music is still at the center of everything I do, but I've never been great at keeping creative disciplines separated. I shoot photography, design my own artwork, make videos, and build apps.</p>
+      <p>Recently I've also been experimenting with AI music tools. Most of the DeltaX catalog has nothing to do with AI. I got interested because I wanted to understand where the technology was actually good, where it fell apart, and what musicians could do with it.</p>
+      <p>One thing kept bothering me: the songs often sounded unfinished. So I built <a href="champagne.html">Champagne</a>.</p>
+      <p>That's pretty representative of how I work. If something interests me enough, eventually I'm probably going to make a record about it, photograph it, design something for it, or build an app.</p>
     </div>
     <div class="about-cta">
       <div class="links">
