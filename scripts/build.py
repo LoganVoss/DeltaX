@@ -343,7 +343,7 @@ def build_champagne() -> None:
         "@type": "SoftwareApplication",
         "name": "Champagne",
         "applicationCategory": "MultimediaApplication",
-        "description": "A one-click mastering studio for AI music with four mastering styles and unlimited local exports.",
+        "description": "A one click mastering studio for AI music with four mastering styles and unlimited local exports.",
         "offers": {
             "@type": "Offer",
             "price": "49.99",
@@ -366,7 +366,7 @@ def build_champagne() -> None:
     <div>
       <p class="eyebrow">Champagne</p>
       <h1>Master AI music.</h1>
-      <p class="lede">Drop in a track, pick a style, and export a finished master. One-click, perfection.</p>
+      <p class="lede">Drop in a track, pick a style, and export a finished master. One click, perfection.</p>
       <div class="champagne-buy">
         <span class="price">$49.99</span>
         <span class="price-note">One price. Unlimited masters.</span>
