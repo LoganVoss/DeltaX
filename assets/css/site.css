@@ -535,11 +535,10 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 }
 .social-list a {
   background: #fff;
-  padding: 28px 24px;
+  padding: 24px;
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-height: 140px;
+  align-items: center;
+  min-height: 0;
   transition: background 0.2s ease;
 }
 .social-list a:hover { background: #fafafa; }

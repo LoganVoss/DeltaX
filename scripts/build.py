@@ -204,25 +204,25 @@ def build_index() -> None:
 
 
 SOCIALS = [
-    ("Apple Music", "The complete DeltaX discography.", "https://music.apple.com/us/artist/deltax/1620112963"),
-    ("Spotify", "Albums, singles, and the live catalog.", "https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF"),
-    ("YouTube", "The official music channel.", "https://www.youtube.com/@DeltaXMusic"),
-    ("Instagram", "@loganxvoss", "https://www.instagram.com/loganxvoss/"),
-    ("X", "@LoganxVoss", "https://x.com/LoganxVoss"),
-    ("Pixabay", "The free library. Millions of plays.", "https://pixabay.com/users/deltax-music-34692063/"),
-    ("Bandcamp", "High-resolution albums, straight from the desk.", "https://deltaxxx.bandcamp.com/"),
-    ("loganvoss.com", "Artist, designer, musician.", "https://www.loganvoss.com"),
+    ("Apple Music", "https://music.apple.com/us/artist/deltax/1620112963"),
+    ("Spotify", "https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF"),
+    ("YouTube", "https://www.youtube.com/@DeltaXMusic"),
+    ("Instagram", "https://www.instagram.com/loganxvoss/"),
+    ("X", "https://x.com/LoganxVoss"),
+    ("Pixabay", "https://pixabay.com/users/deltax-music-34692063/"),
+    ("Bandcamp", "https://deltaxxx.bandcamp.com/"),
+    ("loganvoss.com", "https://www.loganvoss.com"),
 ]
 
 
 def build_socials() -> None:
     cards = "".join(
-        f'<a href="{esc(url)}" target="_blank" rel="noopener"><strong>{esc(name)}</strong><span>{esc(blurb)}</span></a>'
-        for name, blurb, url in SOCIALS
+        f'<a href="{esc(url)}" target="_blank" rel="noopener"><strong>{esc(name)}</strong></a>'
+        for name, url in SOCIALS
     )
     page = f"""{head(
         "DeltaX Socials",
-        "Official DeltaX and Logan Voss links: Apple Music, Spotify, YouTube, Instagram, X, Pixabay, Bandcamp, and loganvoss.com.",
+        "Official links for DeltaX: Apple Music, Spotify, YouTube, Instagram, X, Pixabay, Bandcamp, and loganvoss.com.",
         "socials.html",
         "assets/img/about/mural.jpg",
     )}
@@ -231,10 +231,7 @@ def build_socials() -> None:
 <main class="section">
   <p class="eyebrow">Socials</p>
   <h1>Listen, follow, or get in touch.</h1>
-  <p class="lede">Official links for DeltaX and Logan Voss.</p>
-  <div class="prose">
-    <p>DeltaX is the music. Logan Voss is the name on the photos, apps, and posts. Same person.</p>
-  </div>
+  <p class="lede">Official links for DeltaX.</p>
   <div class="social-list">{cards}</div>
 </main>
 {foot()}
