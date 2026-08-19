@@ -40,17 +40,22 @@
       el.type = "button";
       el.className = "flow-item is-hidden";
       el.setAttribute("aria-label", `${rel.title}, ${rel.year}`);
+      const src = `assets/img/${rel.cover}`;
       const img = document.createElement("img");
       img.className = "cover";
       img.alt = `${rel.title} cover art by DeltaX`;
       img.draggable = false;
-      img.dataset.src = `assets/img/${rel.cover}`;
+      img.decoding = "async";
+      img.loading = "eager";
+      img.src = src;
       const reflect = document.createElement("img");
       reflect.className = "reflect";
       reflect.alt = "";
       reflect.draggable = false;
+      reflect.decoding = "async";
+      reflect.loading = "eager";
       reflect.setAttribute("aria-hidden", "true");
-      reflect.dataset.src = img.dataset.src;
+      reflect.src = src;
       el.append(img, reflect);
       el.addEventListener("dragstart", (e) => e.preventDefault());
       el.addEventListener("click", (e) => {
@@ -77,16 +82,6 @@
     meta();
   }
 
-  function hydrate(el, i) {
-    const imgs = el.querySelectorAll("img[data-src]");
-    for (const img of imgs) {
-      if (Math.abs(i - current) <= MAX_VIS + 4) {
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-      }
-    }
-  }
-
   function layout() {
     const w = coverW();
     if (!w) return;
@@ -99,7 +94,6 @@
         return;
       }
       el.classList.remove("is-hidden");
-      hydrate(el, i);
 
       const sign = d < 0 ? -1 : 1;
       const t = Math.min(abs, 1);
@@ -263,6 +257,12 @@
   if (toggle && nav) toggle.addEventListener("click", () => nav.classList.toggle("is-open"));
 
   addEventListener("resize", () => layout());
+
+  for (let i = all.length - 1; i >= 0; i--) {
+    const warm = new Image();
+    warm.decoding = "async";
+    warm.src = `assets/img/${all[i].cover}`;
+  }
 
   set(all);
   if (!prefersReduced) {
