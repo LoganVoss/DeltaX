@@ -40,14 +40,13 @@
       el.type = "button";
       el.className = "flow-item is-hidden";
       el.setAttribute("aria-label", `${rel.title}, ${rel.year}`);
-      const src = `assets/img/${rel.cover}`;
       const img = document.createElement("img");
       img.className = "cover";
       img.alt = `${rel.title} cover art by DeltaX`;
       img.draggable = false;
       img.decoding = "async";
       img.loading = "eager";
-      img.src = src;
+      img.dataset.src = `assets/img/${rel.cover}`;
       const reflect = document.createElement("img");
       reflect.className = "reflect";
       reflect.alt = "";
@@ -55,7 +54,7 @@
       reflect.decoding = "async";
       reflect.loading = "eager";
       reflect.setAttribute("aria-hidden", "true");
-      reflect.src = src;
+      reflect.dataset.src = img.dataset.src;
       el.append(img, reflect);
       el.addEventListener("dragstart", (e) => e.preventDefault());
       el.addEventListener("click", (e) => {
@@ -80,6 +79,18 @@
     mode = "spring";
     layout();
     meta();
+    loadRightToLeft();
+  }
+
+  function loadRightToLeft() {
+    for (let i = nodes.length - 1; i >= 0; i--) {
+      const imgs = nodes[i].querySelectorAll("img[data-src]");
+      for (const img of imgs) {
+        if (i >= nodes.length - 16) img.fetchPriority = "high";
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+      }
+    }
   }
 
   function layout() {
@@ -258,58 +269,7 @@
 
   addEventListener("resize", () => layout());
 
-  for (let i = all.length - 1; i >= 0; i--) {
-    const warm = new Image();
-    warm.decoding = "async";
-    warm.src = `assets/img/${all[i].cover}`;
-  }
-
-  const hero = document.querySelector(".hero");
-  const reveal = () => {
-    if (!hero || !hero.classList.contains("is-booting")) return;
-    hero.classList.remove("is-booting");
-  };
-
-  const revealWhenReady = () => {
-    if (prefersReduced) {
-      reveal();
-      return;
-    }
-    const nearby = nodes
-      .filter((_, i) => Math.abs(i - current) <= 3)
-      .map((el) => el.querySelector("img.cover"))
-      .filter(Boolean);
-    let pending = nearby.length;
-    let opened = false;
-    const open = () => {
-      if (opened) return;
-      opened = true;
-      reveal();
-    };
-    const timer = setTimeout(open, 600);
-    if (!pending) {
-      clearTimeout(timer);
-      open();
-      return;
-    }
-    nearby.forEach((img) => {
-      const hit = () => {
-        pending -= 1;
-        if (pending <= 0) {
-          clearTimeout(timer);
-          open();
-        }
-      };
-      if (img.complete && img.naturalWidth) hit();
-      else {
-        img.addEventListener("load", hit, { once: true });
-        img.addEventListener("error", hit, { once: true });
-      }
-    });
-  };
-
   set(all);
-  revealWhenReady();
   if (!prefersReduced) {
     requestAnimationFrame(tick);
   } else {
