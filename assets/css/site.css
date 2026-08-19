@@ -524,6 +524,18 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 .about-visual-break .story-image-wide { margin-top: 0; }
 .about-cta { margin-top: 48px; }
 
+body.page-fill {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+body.page-fill main {
+  flex: 1 0 auto;
+}
+body.page-fill footer {
+  margin-top: auto;
+}
+
 /* ——— Socials / contact ——— */
 .social-list {
   display: grid;

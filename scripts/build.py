@@ -226,7 +226,7 @@ def build_socials() -> None:
         "socials.html",
         "assets/img/about/mural.jpg",
     )}
-<body>
+<body class="page-fill">
 {nav("socials")}
 <main class="section">
   <p class="eyebrow">Socials</p>
