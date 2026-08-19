@@ -231,7 +231,6 @@ def build_socials() -> None:
 <main class="section">
   <p class="eyebrow">Socials</p>
   <h1>Listen, follow, or get in touch.</h1>
-  <p class="lede">Official links for DeltaX.</p>
   <div class="social-list">{cards}</div>
 </main>
 {foot()}
