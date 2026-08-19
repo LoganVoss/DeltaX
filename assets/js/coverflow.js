@@ -264,7 +264,52 @@
     warm.src = `assets/img/${all[i].cover}`;
   }
 
+  const hero = document.querySelector(".hero");
+  const reveal = () => {
+    if (!hero || !hero.classList.contains("is-booting")) return;
+    hero.classList.remove("is-booting");
+  };
+
+  const revealWhenReady = () => {
+    if (prefersReduced) {
+      reveal();
+      return;
+    }
+    const nearby = nodes
+      .filter((_, i) => Math.abs(i - current) <= 3)
+      .map((el) => el.querySelector("img.cover"))
+      .filter(Boolean);
+    let pending = nearby.length;
+    let opened = false;
+    const open = () => {
+      if (opened) return;
+      opened = true;
+      reveal();
+    };
+    const timer = setTimeout(open, 600);
+    if (!pending) {
+      clearTimeout(timer);
+      open();
+      return;
+    }
+    nearby.forEach((img) => {
+      const hit = () => {
+        pending -= 1;
+        if (pending <= 0) {
+          clearTimeout(timer);
+          open();
+        }
+      };
+      if (img.complete && img.naturalWidth) hit();
+      else {
+        img.addEventListener("load", hit, { once: true });
+        img.addEventListener("error", hit, { once: true });
+      }
+    });
+  };
+
   set(all);
+  revealWhenReady();
   if (!prefersReduced) {
     requestAnimationFrame(tick);
   } else {

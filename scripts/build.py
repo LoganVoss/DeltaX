@@ -174,7 +174,7 @@ def build_index() -> None:
 <body>
 {nav("music")}
 <main>
-  <section class="hero" aria-label="Cover Flow">
+  <section class="hero is-booting" aria-label="Cover Flow">
     <p class="hero-kicker">The Discography</p>
     <div class="filters" role="tablist">
       <button class="filter is-on" data-filter="all">All</button>
