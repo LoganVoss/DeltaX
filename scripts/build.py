@@ -423,7 +423,6 @@ def build_champagne() -> None:
   </section>
 
   <section class="section champagne-close">
-    <p class="eyebrow">Price</p>
     <h2>Buy it once.</h2>
     <p class="lede">No subscription. No credits.</p>
     <div class="champagne-buy">
