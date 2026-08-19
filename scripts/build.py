@@ -354,7 +354,7 @@ def build_champagne() -> None:
     extra = f'<script type="application/ld+json">{software_ld}</script>'
     page = f"""{head(
         "Champagne | AI Music Mastering",
-        "Master AI tracks and rough mixes in one click. Four styles. Unlimited exports. $49.99 once.",
+        "Drop in a track, pick a style, and export your finished master. One click, perfection. $49.99.",
         "champagne.html",
         "assets/img/champagne-icon.png",
         extra,
@@ -366,7 +366,7 @@ def build_champagne() -> None:
     <div>
       <p class="eyebrow">Champagne</p>
       <h1>Master AI music.</h1>
-      <p class="lede">Drop in a track, pick a style, and export a finished master. One click, perfection.</p>
+      <p class="lede">Drop in a track, pick a style, and export your finished master. One click, perfection.</p>
       <div class="champagne-buy">
         <span class="price">$49.99</span>
         <span class="price-note">One price. Unlimited masters.</span>
@@ -379,28 +379,41 @@ def build_champagne() -> None:
   </section>
 
   <section class="section champagne-origin">
-    <p class="eyebrow">Why it exists</p>
-    <h2>Built after testing the tools</h2>
+    <p class="eyebrow">Created through experience</p>
+    <h2>Filling the gap</h2>
     <div class="prose">
-      <p>Logan used AI music tools to learn the new landscape, not to replace his catalog. Most DeltaX records are still made without AI.</p>
-      <p>The tools can write a song. They do not make it sound finished. Champagne is the last step.</p>
+      <p>I started investigating AI music tools as a way to learn the new landscape, not replace my creative workflow. The large majority of my catalog is not created with AI, and I'm very proud of that. But that doesn't mean I won't explore new tech!</p>
+      <p>As an artist, it's important to know what's available to you from every angle. The tools can write a song. They do not make it sound finished. Champagne is your secret weapon for landing the eagle.</p>
     </div>
   </section>
 
   <section class="section champagne-process">
-    <p class="eyebrow">How it works</p>
+    <p class="eyebrow">Easy peasy</p>
     <h2>Four steps</h2>
     <div class="steps">
-      <div class="step"><span>01</span><b>Import</b><p>WAV, AIFF, MP3, M4A, or FLAC from a generator, DAW, or voice memo.</p></div>
+      <div class="step"><span>01</span><b>Import</b><p>WAV, AIFF, MP3, M4A, or FLAC</p></div>
       <div class="step"><span>02</span><b>Pick a style</b><p>Four mastering styles. Choose the one that fits the track.</p></div>
-      <div class="step"><span>03</span><b>Preview</b><p>A/B against the original. Trim and fade if you need to.</p></div>
+      <div class="step"><span>03</span><b>Preview</b><p>A/B against the original. Trim and fade discrepancies.</p></div>
       <div class="step"><span>04</span><b>Export</b><p>24-bit, 48 kHz WAV. Leveled and ready to release.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="champagne-detail">
+      <div>
+        <p class="eyebrow">Teardown</p>
+        <h2>Under the hood</h2>
+      </div>
+      <div class="prose">
+        <p>Champagne analyzes the track, then applies level, EQ, compression, and peak control. Processing runs on your device.</p>
+        <p>Champagne does not use AI to master the audio. The engine is digital signal processing, professionally tuned from over 15 years of experience in sound design.</p>
+      </div>
     </div>
   </section>
 
   <section class="section champagne-styles">
     <p class="eyebrow">Mastering</p>
-    <h2>Four Styles</h2>
+    <h2>Four styles</h2>
     <div class="styles">
       <div class="style"><b>Full Power</b><span>Loud and punchy.</span></div>
       <div class="style"><b>Warm Presence</b><span>Warm and close.</span></div>
@@ -409,25 +422,12 @@ def build_champagne() -> None:
     </div>
   </section>
 
-  <section class="section">
-    <div class="champagne-detail">
-      <div>
-        <p class="eyebrow">How</p>
-        <h2>Under the hood</h2>
-      </div>
-      <div class="prose">
-        <p>Champagne analyzes the track, then applies level, EQ, compression, and peak control. Processing runs on your device.</p>
-        <p>It does not use AI to master the audio. The engine is digital signal processing, built from 15 years of experience in sound design.</p>
-      </div>
-    </div>
-  </section>
-
   <section class="section champagne-close">
-    <h2>Buy it once.</h2>
+    <h2>Pay once.</h2>
     <p class="lede">No subscription. No credits.</p>
     <div class="champagne-buy">
       <span class="price">$49.99</span>
-      <span class="price-note">One price. Unlimited masters.</span>
+      <span class="price-note">Unlimited masters. Forever.</span>
     </div>
     <div class="links">
       <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
