@@ -631,7 +631,8 @@ body.page-fill footer {
   height: 240px;
   object-fit: contain;
   justify-self: end;
-  filter: drop-shadow(0 24px 48px rgba(196, 163, 90, 0.32));
+  background: transparent;
+  border-radius: 22.5%;
 }
 .champagne-buy {
   display: flex;
