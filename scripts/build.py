@@ -420,7 +420,7 @@ def build_champagne() -> None:
 
   <section class="section champagne-close">
     <h2>Pay once.</h2>
-    <p class="lede">No Subscription.</p>
+    <p class="lede">No subscription.</p>
     <div class="champagne-buy">
       <span class="price">$49.99</span>
       <span class="price-note">Unlimited masters. Forever.</span>
