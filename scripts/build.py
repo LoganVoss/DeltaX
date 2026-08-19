@@ -298,7 +298,7 @@ def build_about() -> None:
       </figure>
       <div class="prose">
         <p>I was born in San Francisco on Christmas Day, 1995.</p>
-        <p>At age ten, I moved to Chicago, which is where my love for hip-hop was born. When I moved back to California at 18 for college in San Luis Obispo, my love for electronic dance music blossomed. No matter the genre, music has remained an important part of my everyday flow.</p>
+        <p>At age ten, I moved to Chicago, which is where my love for hip-hop was born. When I moved back to California for college in San Luis Obispo, my love for electronic dance music blossomed. No matter the genre, music has remained an important aspect of my everyday flow.</p>
       </div>
     </div>
   </section>
