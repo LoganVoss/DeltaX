@@ -566,19 +566,6 @@ h2 { font-size: clamp(32px, 5vw, 56px); }
 }
 
 /* ——— Champagne ——— */
-.champ {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 56px;
-  align-items: center;
-  padding: 28px 0 8px;
-}
-.champ img {
-  width: 220px;
-  height: 220px;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 48px rgba(196, 163, 90, 0.35));
-}
 .styles {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -728,7 +715,7 @@ footer {
   .nav-toggle { display: block; }
   .section, .release, .about-hero { padding-left: 20px; padding-right: 20px; }
   .stats { grid-template-columns: 1fr 1fr; }
-  .release, .champ, .tl-item, .photo-gallery, .story-split, .story-split-reverse, .champagne-hero, .champagne-detail { grid-template-columns: 1fr; }
+  .release, .tl-item, .photo-gallery, .story-split, .story-split-reverse, .champagne-hero, .champagne-detail { grid-template-columns: 1fr; }
   .photo-gallery { gap: 36px; }
   .photo-gallery .photo-wide { grid-column: auto; }
   .release-art { position: static; max-width: 420px; }

@@ -356,7 +356,7 @@ def build_champagne() -> None:
         "Champagne | AI Music Mastering",
         "Master AI tracks and rough mixes in one click. Four styles. Unlimited exports. $49.99 once.",
         "champagne.html",
-        "assets/img/champagne.png",
+        "assets/img/champagne-icon.png",
         extra,
     )}
 <body>
@@ -375,7 +375,7 @@ def build_champagne() -> None:
         <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
       </div>
     </div>
-    <img class="champagne-icon" src="assets/img/champagne.png" alt="Champagne app icon" width="1024" height="1024">
+    <img class="champagne-icon" src="assets/img/champagne-icon.png" alt="Champagne app icon" width="1024" height="1024">
   </section>
 
   <section class="section champagne-origin">
