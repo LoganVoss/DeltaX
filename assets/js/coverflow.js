@@ -47,15 +47,7 @@
       img.decoding = "async";
       img.loading = "eager";
       img.dataset.src = `assets/img/${rel.cover}`;
-      const reflect = document.createElement("img");
-      reflect.className = "reflect";
-      reflect.alt = "";
-      reflect.draggable = false;
-      reflect.decoding = "async";
-      reflect.loading = "eager";
-      reflect.setAttribute("aria-hidden", "true");
-      reflect.dataset.src = img.dataset.src;
-      el.append(img, reflect);
+      el.append(img);
       el.addEventListener("dragstart", (e) => e.preventDefault());
       el.addEventListener("click", (e) => {
         if (Math.abs(e.clientX - downX) > 8) return;
