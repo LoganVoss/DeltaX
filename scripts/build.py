@@ -128,6 +128,7 @@ ARTIST_LD = {
         "https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF",
         "https://www.youtube.com/@DeltaXMusic",
         "https://www.instagram.com/loganxvoss/",
+        "https://www.threads.com/@loganxvoss",
         "https://x.com/LoganxVoss",
         "https://pixabay.com/users/deltax-music-34692063/",
         "https://deltaxxx.bandcamp.com/",
@@ -208,6 +209,7 @@ SOCIALS = [
     ("Spotify", "https://open.spotify.com/artist/6aVIyHMzSIIhYNStHu8fBF"),
     ("YouTube", "https://www.youtube.com/@DeltaXMusic"),
     ("Instagram", "https://www.instagram.com/loganxvoss/"),
+    ("Threads", "https://www.threads.com/@loganxvoss"),
     ("X", "https://x.com/LoganxVoss"),
     ("Pixabay", "https://pixabay.com/users/deltax-music-34692063/"),
     ("Bandcamp", "https://deltaxxx.bandcamp.com/"),
@@ -222,7 +224,7 @@ def build_socials() -> None:
     )
     page = f"""{head(
         "DeltaX Socials",
-        "Official links for DeltaX: Apple Music, Spotify, YouTube, Instagram, X, Pixabay, Bandcamp, and loganvoss.com.",
+        "Official links for DeltaX: Apple Music, Spotify, YouTube, Instagram, Threads, X, Pixabay, Bandcamp, and loganvoss.com.",
         "socials.html",
         "assets/img/about/mural.jpg",
     )}
