@@ -267,9 +267,15 @@ def build_about() -> None:
     <h2>DatPiff to dance music.</h2>
     <div class="story-split">
       <div class="prose">
-        <p>When I was in high school, I got really into DatPiff.com. I was obsessed with finding the latest hip-hop records. That quickly turned into wanting to make my own music, but I had no idea where to start. I taught myself how to do everything. Steal beats, write lyrics, and publish to streaming services. My rap stage name is LOVO, and you can find my mixtapes on <a class="yt-link" href="https://www.youtube.com/watch?v=KkypqGfXnGc&amp;list=PLi2J15BKiAqzJ5OYQhubeDC_LaXn4KllS" target="_blank" rel="noopener">YouTube</a>.</p>
-        <p>Throughout college, I got more into electronic music. Eventually, the beats took over, and I went all in on creating dance. That's where DeltaX was born.</p>
-        <p>Again, I had no idea where to start with producing electronic dance music. So I taught myself production. My best work is created using samples. I stack them to create something totally new and exciting. You can learn how I make music on <a class="yt-link" href="https://www.youtube.com/watch?v=hF_60YaPTkM&amp;list=PL5lvwEBe-mTsi4fvG8kdIRIKpDYHBAwJn" target="_blank" rel="noopener">YouTube</a>.</p>
+        <p>I started making music because of DatPiff.</p>
+        <p>In high school, I was obsessed with finding new hip-hop records and mixtapes. I spent hours digging through DatPiff.com looking for the latest releases, and eventually, listening wasn't enough. I wanted to make something of my own.</p>
+        <p>I had no idea what I was doing, so I taught myself. I found beats, wrote lyrics, recorded songs, figured out how to release them, and slowly learned how the entire process worked. I started making music under the name <strong>LOVO</strong>, and those early mixtapes became my introduction to being an artist. You can still find them on <a class="yt-link" href="https://www.youtube.com/watch?v=KkypqGfXnGc&amp;list=PLi2J15BKiAqzJ5OYQhubeDC_LaXn4KllS" target="_blank" rel="noopener">YouTube</a>.</p>
+        <p>Then my taste started changing.</p>
+        <p>Throughout college, I became increasingly obsessed with electronic music. I loved the scale of it, the energy, and especially what could happen when production itself became the centerpiece of a song. Eventually, the beats took over completely.</p>
+        <p>That evolution became <strong>DeltaX</strong>.</p>
+        <p>Once again, I was starting from zero. I taught myself electronic music production the same way I had taught myself everything else: by experimenting, breaking things, studying what worked, and making a lot of music.</p>
+        <p>Sampling became a huge part of that process. A lot of my favorite work starts with pieces of existing sound that I cut apart, reshape, layer, and combine until they become something completely new. That process of transformation is still at the center of how I make music today.</p>
+        <p>You can see how I build songs as DeltaX on <a class="yt-link" href="https://www.youtube.com/watch?v=hF_60YaPTkM&amp;list=PL5lvwEBe-mTsi4fvG8kdIRIKpDYHBAwJn" target="_blank" rel="noopener">YouTube</a>.</p>
       </div>
       <figure class="story-image story-image-portrait">
         <img src="assets/img/about/yosemite.jpg" alt="Logan Voss standing on a mountain in Yosemite" width="2400" height="3600">
