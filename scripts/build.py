@@ -288,7 +288,7 @@ def build_about() -> None:
       <div><span class="stat-n">25+</span><span class="stat-l">Studio albums</span></div>
       <div><span class="stat-n">{len(CATALOG)}</span><span class="stat-l">Releases</span></div>
       <div><span class="stat-n">100K+</span><span class="stat-l">Pixabay downloads</span></div>
-      <div><span class="stat-n">15</span><span class="stat-l">Years in music</span></div>
+      <div><span class="stat-n">1M+</span><span class="stat-l">Streams</span></div>
     </div>
   </section>
 
