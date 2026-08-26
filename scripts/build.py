@@ -376,7 +376,7 @@ def build_champagne() -> None:
         <span class="price-note">One price. Unlimited masters.</span>
       </div>
       <div class="links">
-        <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
+        <a class="btn" href="https://apps.apple.com/us/app/champagne-mastering-studio/id6758863788?mt=12" target="_blank" rel="noopener">App Store</a>
       </div>
     </div>
     <img class="champagne-icon" src="assets/img/champagne-icon.png" alt="Champagne app icon" width="1024" height="1024">
@@ -433,7 +433,7 @@ def build_champagne() -> None:
       <span class="price-note">Unlimited masters. Forever.</span>
     </div>
     <div class="links">
-      <a class="btn" href="https://apps.apple.com/us/developer/logan-voss/id1813258380" target="_blank" rel="noopener">App Store</a>
+      <a class="btn" href="https://apps.apple.com/us/app/champagne-mastering-studio/id6758863788?mt=12" target="_blank" rel="noopener">App Store</a>
     </div>
   </section>
 </main>

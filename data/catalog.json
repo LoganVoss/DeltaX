@@ -1,5 +1,45 @@
 [
   {
+    "id": 6804197229,
+    "slug": "addictive-sped-up-and-slowed-down-6804197229",
+    "title": "Addictive (Sped Up & Slowed Down)",
+    "fullTitle": "Addictive (Sped Up & Slowed Down) - EP",
+    "kind": "ep",
+    "tracks": 3,
+    "releaseDate": "2026-08-21",
+    "year": "2026",
+    "genre": "Dance",
+    "appleUrl": "https://music.apple.com/us/album/addictive-sped-up-slowed-down-single/6804197229",
+    "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/92/8f/45/928f45e1-8e3e-f8c8-7dcb-76089a27d2f1/artwork.jpg/1000x1000bb.jpg",
+    "cover": "covers/6804197229.jpg",
+    "explicit": false,
+    "copyright": "\u2117 2026 INFINITE",
+    "country": "USA",
+    "tracklist": [
+      {
+        "n": 1,
+        "title": "Addictive",
+        "ms": 174857,
+        "appleUrl": "https://music.apple.com/us/album/addictive/6804197229",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/b8/73/93/b8739355-3b12-7df1-2d3b-e9cbc4d7dec8/mzaf_12680210877985315270.plus.aac.p.m4a"
+      },
+      {
+        "n": 2,
+        "title": "Addictive (Sped Up)",
+        "ms": 130490,
+        "appleUrl": "https://music.apple.com/us/album/addictive-sped-up/6804197229",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/f3/6f/53/f36f5356-3d96-deff-3895-1ec33bf9408e/mzaf_110716004311884841.plus.aac.p.m4a"
+      },
+      {
+        "n": 3,
+        "title": "Addictive (Slowed Down)",
+        "ms": 227087,
+        "appleUrl": "https://music.apple.com/us/album/addictive-slowed-down/6804197229",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3a/8d/8b/3a8d8bdf-12bd-b74e-b964-c2885269101b/mzaf_9845491972402943872.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
     "id": 6799590827,
     "slug": "weightless-6799590827",
     "title": "Weightless",
