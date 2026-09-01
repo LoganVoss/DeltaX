@@ -387,7 +387,7 @@ def build_champagne() -> None:
     <h2>Filling the gap</h2>
     <div class="prose">
       <p>I started investigating AI music tools as a way to learn the new landscape, not replace my creative workflow. The large majority of my catalog is not created with AI, and I'm very proud of that. But that doesn't mean I won't explore new tech!</p>
-      <p>As an artist, it's important to know what's available to you from every angle. The tools can write a song. They do not make it sound finished. Champagne is your secret weapon for landing the eagle.</p>
+      <p>As an artist, it's important to know what's available to you from every angle. The tools can write a song. They do not make it sound finished. Champagne is your secret weapon.</p>
     </div>
   </section>
 
@@ -410,7 +410,7 @@ def build_champagne() -> None:
       </div>
       <div class="prose">
         <p>Champagne analyzes the track, then applies level, EQ, compression, and peak control. Processing runs on your device.</p>
-        <p>Champagne does not use AI to master the audio. The engine is digital signal processing, professionally tuned from over 15 years of experience in sound design.</p>
+        <p>Champagne's mastering engine is professionally tuned from over 15 years of experience in sound design.</p>
       </div>
     </div>
   </section>
