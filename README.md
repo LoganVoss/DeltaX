@@ -1,32 +1,7 @@
 # DeltaX
 
-Official artist site for **DeltaX** (Logan Mackenzie Voss). [deltaxmusic.com](https://www.deltaxmusic.com).
+Logan Voss is DeltaX. A Los Angeles musician with 15+ years of records — first rapping as LOVO, then producing as DeltaX.
 
-Static GitHub Pages project. Cover-flow discography, about, socials, Champagne, and a browser Studio.
+Born in San Francisco on Christmas Day, 1995, he found hip-hop in Chicago and electronic music in California. He taught himself the whole process: writing, recording, sampling, and release. The catalog now spans 25+ albums and hundreds of singles, heard in television, film, and creator content worldwide.
 
-## Local
-
-Open `index.html`, or serve the folder:
-
-```bash
-python3 -m http.server 8080
-```
-
-## Rebuild catalog
-
-```bash
-python3 scripts/fetch_catalog.py
-python3 scripts/build.py
-```
-
-## Rebuild Champagne Studio
-
-```bash
-cd studio-src
-npm install
-npm run build
-```
-
-## Custom domain
-
-`CNAME` is set to `www.deltaxmusic.com`. In the repo: Settings → Pages → Deploy from `main` / root. At your DNS host, point `www` to `LoganVoss.github.io` (CNAME) and the apex to GitHub Pages A records.
+[deltaxmusic.com](https://www.deltaxmusic.com) is the official site: the discography, the story, and [Champagne](https://www.deltaxmusic.com/champagne.html), a mastering studio for AI music.
