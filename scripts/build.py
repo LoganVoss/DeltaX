@@ -376,6 +376,7 @@ def build_champagne() -> None:
         <span class="price-note">One price. Unlimited masters.</span>
       </div>
       <div class="links">
+        <a class="btn" href="studio/">Try Now</a>
         <a class="btn" href="https://apps.apple.com/us/app/champagne-mastering-studio/id6758863788?mt=12" target="_blank" rel="noopener">App Store</a>
       </div>
     </div>
@@ -433,6 +434,7 @@ def build_champagne() -> None:
       <span class="price-note">Unlimited masters. Forever.</span>
     </div>
     <div class="links">
+      <a class="btn" href="studio/">Try Now</a>
       <a class="btn" href="https://apps.apple.com/us/app/champagne-mastering-studio/id6758863788?mt=12" target="_blank" rel="noopener">App Store</a>
     </div>
   </section>
@@ -451,7 +453,7 @@ def build_meta() -> None:
         ROOT / "robots.txt",
         f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n",
     )
-    urls = ["", "about.html", "socials.html", "champagne.html"]
+    urls = ["", "about.html", "socials.html", "champagne.html", "studio/"]
     body = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for u in urls:
         loc = f"{SITE}/{u}" if u else f"{SITE}/"

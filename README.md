@@ -2,7 +2,7 @@
 
 Official artist site for **DeltaX** (Logan Mackenzie Voss). [deltaxmusic.com](https://www.deltaxmusic.com).
 
-Static GitHub Pages project. Cover-flow discography, about, socials, and Champagne.
+Static GitHub Pages project. Cover-flow discography, about, socials, Champagne, and a browser Studio.
 
 ## Local
 
@@ -17,6 +17,14 @@ python3 -m http.server 8080
 ```bash
 python3 scripts/fetch_catalog.py
 python3 scripts/build.py
+```
+
+## Rebuild Champagne Studio
+
+```bash
+cd studio-src
+npm install
+npm run build
 ```
 
 ## Custom domain
