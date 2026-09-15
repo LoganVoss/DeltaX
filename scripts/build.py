@@ -387,8 +387,8 @@ def build_champagne() -> None:
     <p class="eyebrow">Created through experience</p>
     <h2>Filling the gap</h2>
     <div class="prose">
-      <p>I started investigating AI music tools as a way to learn the new landscape, not replace my creative workflow. Most of my catalog is not created with AI, and I'm very proud of that. But that doesn't mean I won't explore new tech.</p>
-      <p>As an artist, it's important to know what's available to you from every angle. The tools can write a song. They do not make it sound finished. That's where Champagne comes in.</p>
+      <p>I started investigating AI music tools as a way to learn the new landscape, not replace my creative workflow. Most of my catalog is not created with AI, and I'm very proud of that. But that doesn't mean I won't explore new tech. As an artist, it's important to know what's available to you from every angle.</p>
+      <p>The tools can write a song. They do not make it sound finished. That's where Champagne comes in.</p>
     </div>
   </section>
 
