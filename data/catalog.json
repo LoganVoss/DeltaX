@@ -1,5 +1,31 @@
 [
   {
+    "id": 6811551014,
+    "slug": "higher-and-higher-gravity-goo-official-soundtrack-6811551014",
+    "title": "Higher & Higher (Gravity Goo Official Soundtrack)",
+    "fullTitle": "Higher & Higher (Gravity Goo Official Soundtrack) - Single",
+    "kind": "single",
+    "tracks": 1,
+    "releaseDate": "2026-09-14",
+    "year": "2026",
+    "genre": "Dance",
+    "appleUrl": "https://music.apple.com/us/album/higher-higher-gravity-goo-official-soundtrack-single/6811551014",
+    "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/de/14/20/de142063-2cff-8604-f7ad-a5d9ee99561f/artwork.jpg/1000x1000bb.jpg",
+    "cover": "covers/6811551014.jpg",
+    "explicit": false,
+    "copyright": "\u2117 2026 INFINITE",
+    "country": "USA",
+    "tracklist": [
+      {
+        "n": 1,
+        "title": "Higher & Higher (Gravity Goo Official Soundtrack)",
+        "ms": 153984,
+        "appleUrl": "https://music.apple.com/us/album/higher-higher-gravity-goo-official-soundtrack/6811551014",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/ad/a9/20/ada92076-2c55-c9bd-3b9a-83cc16cfd0ee/mzaf_10684723245921178601.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
     "id": 6804197229,
     "slug": "addictive-sped-up-and-slowed-down-6804197229",
     "title": "Addictive (Sped Up & Slowed Down)",
