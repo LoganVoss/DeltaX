@@ -154,7 +154,7 @@ def build_index() -> None:
             "tracks": r["tracks"],
             "cover": r["cover"],
             "appleUrl": r["appleUrl"],
-            "spotifyUrl": spotify_search(r["title"]),
+            "spotifyUrl": r.get("spotifyUrl") or spotify_search(r["title"]),
         }
         for r in CATALOG
     ]

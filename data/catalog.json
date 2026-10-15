@@ -1,5 +1,130 @@
 [
   {
+    "id": 6822006321,
+    "slug": "serendipity-and-synchronicity-6822006321",
+    "title": "Serendipity & Synchronicity",
+    "fullTitle": "Serendipity & Synchronicity",
+    "kind": "album",
+    "tracks": 15,
+    "releaseDate": "2026-10-05",
+    "year": "2026",
+    "genre": "Dance",
+    "appleUrl": "https://music.apple.com/us/album/serendipity-synchronicity/6822006321",
+    "artworkUrl": "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/b8/2d/27/b82d270b-3af5-8d2f-c372-e824c85e9892/artwork.jpg/1000x1000bb.jpg",
+    "cover": "covers/6822006321.jpg",
+    "explicit": false,
+    "copyright": "\u2117 2026 INFINITE",
+    "country": "USA",
+    "spotifyUrl": "https://open.spotify.com/album/1EBygzApdS0lBykqZGkEbi",
+    "tracklist": [
+      {
+        "n": 1,
+        "title": "Alien Thingy (Intro)",
+        "ms": 25600,
+        "appleUrl": "https://music.apple.com/us/album/alien-thingy-intro/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/9f/d3/16/9fd31616-f5da-6614-861a-309b005c17f1/mzaf_6728366226020035802.plus.aac.p.m4a"
+      },
+      {
+        "n": 2,
+        "title": "Body Rock",
+        "ms": 232500,
+        "appleUrl": "https://music.apple.com/us/album/body-rock/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a5/b5/99/a5b59970-4348-aada-df29-3ebce59bf1f7/mzaf_12939111577693112125.plus.aac.p.m4a"
+      },
+      {
+        "n": 3,
+        "title": "Cherry Bomb",
+        "ms": 186240,
+        "appleUrl": "https://music.apple.com/us/album/cherry-bomb/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/e5/dd/58/e5dd5823-a9c9-f527-ef77-3fb5c88452a6/mzaf_4972334711910308401.plus.aac.p.m4a"
+      },
+      {
+        "n": 4,
+        "title": "Crazy",
+        "ms": 174937,
+        "appleUrl": "https://music.apple.com/us/album/crazy/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/52/b8/60/52b86088-f721-d500-7a25-69a37c8180a4/mzaf_11569106928056822157.plus.aac.p.m4a"
+      },
+      {
+        "n": 5,
+        "title": "Hard Criminal",
+        "ms": 125517,
+        "appleUrl": "https://music.apple.com/us/album/hard-criminal/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/20/98/6b/20986bac-a676-aca5-6ac0-1f178fbc74d0/mzaf_9303297292635397025.plus.aac.p.m4a"
+      },
+      {
+        "n": 6,
+        "title": "Hydroponics",
+        "ms": 125373,
+        "appleUrl": "https://music.apple.com/us/album/hydroponics/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/46/0d/e2/460de246-8e93-7b02-6f8d-e8dbce8171f4/mzaf_8617841383855405731.plus.aac.p.m4a"
+      },
+      {
+        "n": 7,
+        "title": "Hyperglow",
+        "ms": 154667,
+        "appleUrl": "https://music.apple.com/us/album/hyperglow/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/4c/d7/ef/4cd7ef16-3bb2-9e67-0ef7-5f52b505f870/mzaf_142723068358408377.plus.aac.p.m4a"
+      },
+      {
+        "n": 8,
+        "title": "Midnight Club",
+        "ms": 166286,
+        "appleUrl": "https://music.apple.com/us/album/midnight-club/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/ba/3e/ec/ba3eec89-1713-950c-72a4-bfe82919cac9/mzaf_7757375543913683416.plus.aac.p.m4a"
+      },
+      {
+        "n": 9,
+        "title": "Monte Carlo",
+        "ms": 234000,
+        "appleUrl": "https://music.apple.com/us/album/monte-carlo/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/3f/99/06/3f99069c-3bbd-69e0-8fd5-adc64ac3f043/mzaf_8287170778900893508.plus.aac.p.m4a"
+      },
+      {
+        "n": 10,
+        "title": "Qubits",
+        "ms": 182400,
+        "appleUrl": "https://music.apple.com/us/album/qubits/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/b8/6a/b6/b86ab6e1-18d6-599c-51f4-785e3e08a9ac/mzaf_3991470669787418428.plus.aac.p.m4a"
+      },
+      {
+        "n": 11,
+        "title": "Rise & Shine",
+        "ms": 160552,
+        "appleUrl": "https://music.apple.com/us/album/rise-shine/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/7a/a1/88/7aa18839-daa0-a623-543c-ab49b64dfdbf/mzaf_1879563934790108459.plus.aac.p.m4a"
+      },
+      {
+        "n": 12,
+        "title": "SF90",
+        "ms": 123864,
+        "appleUrl": "https://music.apple.com/us/album/sf90/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a7/f2/a7/a7f2a7d0-8615-d088-5dba-4c12899215b9/mzaf_13695814167275091376.plus.aac.p.m4a"
+      },
+      {
+        "n": 13,
+        "title": "Smokin' Zwang",
+        "ms": 174545,
+        "appleUrl": "https://music.apple.com/us/album/smokin-zwang/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/61/d1/9d/61d19d24-d692-3854-151d-7955df9ac1dc/mzaf_10000665153117507400.plus.aac.p.m4a"
+      },
+      {
+        "n": 14,
+        "title": "Soul Dive",
+        "ms": 170400,
+        "appleUrl": "https://music.apple.com/us/album/soul-dive/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/32/37/de/3237de54-94ca-095e-828f-a52cce2680a1/mzaf_4714319937244562671.plus.aac.p.m4a"
+      },
+      {
+        "n": 15,
+        "title": "Tautology",
+        "ms": 192000,
+        "appleUrl": "https://music.apple.com/us/album/tautology/6822006321",
+        "preview": "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/1b/71/d9/1b71d995-c781-6456-363c-8abd43f881b5/mzaf_7491947183238278376.plus.aac.p.m4a"
+      }
+    ]
+  },
+  {
     "id": 6811551014,
     "slug": "higher-and-higher-gravity-goo-official-soundtrack-6811551014",
     "title": "Higher & Higher (Gravity Goo Official Soundtrack)",
